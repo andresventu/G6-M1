@@ -13,5 +13,5 @@ class ejemplo1 : public QWidget, public Ui_Counter
     public slots:
         void doButton();
 };
-//hola
+//hola yeray
 #endif // ejemplo1_H
