@@ -1,0 +1,4 @@
+-I/home/andres/robotica/G6-M1/build-ejemplo1-Desktop-Debug
+-o
+/home/andres/robotica/G6-M1/build-ejemplo1-Desktop-Debug/moc_ejemplo1.cpp
+/home/andres/robotica/G6-M1/ejemplo1/ejemplo1.h

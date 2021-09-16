@@ -9,9 +9,11 @@ class ejemplo1 : public QWidget, public Ui_Counter
     Q_OBJECT
     public:
         ejemplo1();
+        int contador=0;
+         QTimer *timer=new QTimer(this);
 
     public slots:
+        void ActivacionTimer();
         void doButton();
 };
-//hola yeray
 #endif // ejemplo1_H
