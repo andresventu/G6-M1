@@ -10,10 +10,12 @@ class ejemplo1 : public QWidget, public Ui_Counter
     public:
         ejemplo1();
         int contador=0;
-         QTimer *timer=new QTimer(this);
+        int num_frecuencia=1000;
+        QTimer timer;
 
     public slots:
         void ActivacionTimer();
         void doButton();
+        void doButtonStart();
 };
 #endif // ejemplo1_H

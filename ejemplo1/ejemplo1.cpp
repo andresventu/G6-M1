@@ -5,24 +5,31 @@ ejemplo1::ejemplo1(): Ui_Counter()
 	setupUi(this);
 	show();
     connect(button, SIGNAL(clicked()), this, SLOT(doButton()) );
-   // QTimer *timer=new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(ActivacionTimer()));
+    connect(buttonStart, SIGNAL(clicked()), this, SLOT(doButtonStart()) );
+    connect(&timer, SIGNAL(timeout()), this, SLOT(ActivacionTimer()));
+    frecuencia->display(num_frecuencia);
 
-    timer->start(500);
-
-
+    timer.start(num_frecuencia);
 
 }
 void ejemplo1::ActivacionTimer(){
     lcdNumber->display(contador);
     contador++;
-    if(contador>25) contador=0;
+
 }
 
 void ejemplo1::doButton()
 {
-	qDebug() << "click on button";
-    timer->stop();
+
+    timer.stop();
+}
+void ejemplo1::doButtonStart()
+{
+    dial->sliderPosition();
+    num_frecuencia=dial->sliderPosition();
+    frecuencia->display(num_frecuencia);
+
+    timer.start(num_frecuencia);
 }
 
 
