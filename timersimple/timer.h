@@ -36,7 +36,11 @@ class Timer
         };
         
         void stop() { go.store(!go); };
+        /*setPeriod:
+         * Pone el valor del periodo que indique el parametro p */
 		void setPeriod(int p) { period.store(p) ;};
+        /* getPeriod:
+         * Devuelve el Periodo actual en forma de entero*/
         std::atomic_int getPeriod() {
             int a=period.load();
             return a;

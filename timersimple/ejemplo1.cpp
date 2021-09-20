@@ -16,7 +16,10 @@ ejemplo1::ejemplo1(): Ui_Counter()
 
 ejemplo1::~ejemplo1()
 {}
-
+/* doButton:
+ * comprueba si el contador esta en marcha o no, y dependiendo del estado, lo pone en
+ * marcha o lo para, si lo pone en marcha lo pone con el periodo que indique el usuario
+ * en el dial*/
 void ejemplo1::doButton()
 {
 	static bool stopped = false;
@@ -29,7 +32,9 @@ void ejemplo1::doButton()
 
 	qDebug() << "click on button";
 }
-
+/* Metodo cuenta:
+ * Muestra por pantalla el contador dependiendo del periodo e incrementa este contador
+ * Tambien muestra por pantalla el periodo actual por pantalla*/
 void ejemplo1::cuenta()
 {
 
@@ -37,6 +42,9 @@ void ejemplo1::cuenta()
     lcdPeriodo->display(mytimer.getPeriod());
 	trick++;
 }
+/*Metodo cuentaLong:
+ * muestra por pantalla e incrementa el contador desde el inicio del contador(en segundos
+ * */
 void ejemplo1::cuentaLong()
 {
 
