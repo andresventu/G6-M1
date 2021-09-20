@@ -326,12 +326,15 @@ CMakeFiles/ejemplo1.dir/ejemplo1.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs_win.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDial
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLCDNumber
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractbutton.h
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractslider.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdesktopwidget.h
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdial.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlcdnumber.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qpushbutton.h
@@ -669,6 +672,7 @@ CMakeFiles/ejemplo1.dir/main.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs_win.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommonStyle
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDial
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLCDNumber
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLayout
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton
@@ -1131,12 +1135,15 @@ CMakeFiles/ejemplo1.dir/moc_ejemplo1.cpp.o
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs.h
  /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs_win.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDial
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLCDNumber
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractbutton.h
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractslider.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdesktopwidget.h
+ /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdial.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlcdnumber.h
  /usr/include/x86_64-linux-gnu/qt5/QtWidgets/qpushbutton.h

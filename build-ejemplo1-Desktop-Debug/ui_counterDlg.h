@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QDial>
 #include <QtWidgets/QLCDNumber>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
@@ -22,6 +23,9 @@ class Ui_Counter
 public:
     QPushButton *button;
     QLCDNumber *lcdNumber;
+    QPushButton *buttonStart;
+    QDial *dial;
+    QLCDNumber *frecuencia;
 
     void setupUi(QWidget *Counter)
     {
@@ -30,10 +34,21 @@ public:
         Counter->resize(400, 300);
         button = new QPushButton(Counter);
         button->setObjectName(QString::fromUtf8("button"));
-        button->setGeometry(QRect(80, 180, 251, 71));
+        button->setGeometry(QRect(120, 190, 101, 71));
         lcdNumber = new QLCDNumber(Counter);
         lcdNumber->setObjectName(QString::fromUtf8("lcdNumber"));
         lcdNumber->setGeometry(QRect(50, 40, 301, 91));
+        buttonStart = new QPushButton(Counter);
+        buttonStart->setObjectName(QString::fromUtf8("buttonStart"));
+        buttonStart->setGeometry(QRect(20, 190, 91, 71));
+        dial = new QDial(Counter);
+        dial->setObjectName(QString::fromUtf8("dial"));
+        dial->setGeometry(QRect(280, 200, 81, 91));
+        dial->setMinimum(1);
+        dial->setMaximum(1000);
+        frecuencia = new QLCDNumber(Counter);
+        frecuencia->setObjectName(QString::fromUtf8("frecuencia"));
+        frecuencia->setGeometry(QRect(263, 160, 91, 31));
 
         retranslateUi(Counter);
 
@@ -44,6 +59,7 @@ public:
     {
         Counter->setWindowTitle(QApplication::translate("Counter", "Counter", nullptr));
         button->setText(QApplication::translate("Counter", "STOP", nullptr));
+        buttonStart->setText(QApplication::translate("Counter", "START", nullptr));
     } // retranslateUi
 
 };
