@@ -50,7 +50,6 @@ class Timer
     private:
         std::atomic_bool go = false;
 		std::atomic_int period = 0;
-        std::atomic_int periodLong = 0;
         
     
 };
