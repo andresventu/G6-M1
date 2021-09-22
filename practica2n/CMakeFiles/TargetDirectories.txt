@@ -1,0 +1,15 @@
+/home/alumno/robocomp/components/G6-M1/practica2n/CMakeFiles/install/strip.dir
+/home/alumno/robocomp/components/G6-M1/practica2n/CMakeFiles/install/local.dir
+/home/alumno/robocomp/components/G6-M1/practica2n/CMakeFiles/edit_cache.dir
+/home/alumno/robocomp/components/G6-M1/practica2n/CMakeFiles/rebuild_cache.dir
+/home/alumno/robocomp/components/G6-M1/practica2n/CMakeFiles/list_install_components.dir
+/home/alumno/robocomp/components/G6-M1/practica2n/CMakeFiles/install.dir
+/home/alumno/robocomp/components/G6-M1/practica2n/src/CMakeFiles/install/strip.dir
+/home/alumno/robocomp/components/G6-M1/practica2n/src/CMakeFiles/install/local.dir
+/home/alumno/robocomp/components/G6-M1/practica2n/src/CMakeFiles/install.dir
+/home/alumno/robocomp/components/G6-M1/practica2n/src/CMakeFiles/list_install_components.dir
+/home/alumno/robocomp/components/G6-M1/practica2n/src/CMakeFiles/ICES__home_alumno_robocomp_components_G6-M1_practica2n_src.dir
+/home/alumno/robocomp/components/G6-M1/practica2n/src/CMakeFiles/chocachoca.dir
+/home/alumno/robocomp/components/G6-M1/practica2n/src/CMakeFiles/edit_cache.dir
+/home/alumno/robocomp/components/G6-M1/practica2n/src/CMakeFiles/rebuild_cache.dir
+/home/alumno/robocomp/components/G6-M1/practica2n/src/CMakeFiles/chocachoca_autogen.dir
