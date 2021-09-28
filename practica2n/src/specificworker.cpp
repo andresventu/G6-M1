@@ -21,60 +21,76 @@
 /**
 * \brief Default constructor
 */
-SpecificWorker::SpecificWorker(TuplePrx tprx, bool startup_check) : GenericWorker(tprx)
-{
-	this->startup_check_flag = startup_check;
+SpecificWorker::SpecificWorker(TuplePrx tprx, bool startup_check) : GenericWorker(tprx) {
+    this->startup_check_flag = startup_check;
 }
 
 /**
 * \brief Default destructor
 */
-SpecificWorker::~SpecificWorker()
-{
-	std::cout << "Destroying SpecificWorker" << std::endl;
+SpecificWorker::~SpecificWorker() {
+    std::cout << "Destroying SpecificWorker" << std::endl;
 }
 
-bool SpecificWorker::setParams(RoboCompCommonBehavior::ParameterList params)
-{
+bool SpecificWorker::setParams(RoboCompCommonBehavior::ParameterList params) {
 
-	return true;
+    return true;
 }
 
-void SpecificWorker::initialize(int period)
-{
-	std::cout << "Initialize worker" << std::endl;
-	this->Period = period;
-	if(this->startup_check_flag)
-	{
-		this->startup_check();
-	}
-	else
-	{
-		timer.start(Period);
-	}
-
-}
-
-void SpecificWorker::compute()
-{
-    try
-    {
-        auto ldata= this->laser_proxy->getLaserData();
-        for(auto &l: ldata)
-            qInfo()<<l.dist<<l.angle;
-
-
-
+void SpecificWorker::initialize(int period) {
+    std::cout << "Initialize worker" << std::endl;
+    this->Period = period;
+    if (this->startup_check_flag) {
+        this->startup_check();
+    } else {
+        timer.start(Period);
     }
-    catch (const Ice::Exception &e){std::cout<<e.what()<<std::endl;}
 
 }
 
-int SpecificWorker::startup_check()
-{
-	std::cout << "Startup check" << std::endl;
-	QTimer::singleShot(200, qApp, SLOT(quit()));
-	return 0;
+void SpecificWorker::compute() {
+    const float threshold = 200; // millimeters
+    float rot = 0.2;  // rads per second
+    int condicion = 0;
+    int adv = 50;
+    try {
+        // read laser data
+        RoboCompLaser::TLaserData ldata = laser_proxy->getLaserData();
+        //sort laser data from small to large distances using a lambda function.
+        std::sort(ldata.begin() + 3, ldata.end() - 3,
+                  [](RoboCompLaser::TData a, RoboCompLaser::TData b) { return a.dist < b.dist; });
+
+        if (ldata[10].dist < threshold){
+            condicion++;
+
+            switch (condicion) {
+                case 0: //espiral
+                    while (!ldata[10].dist < threshold) {
+                        differentialrobot_proxy->setSpeedBase(++adv, 0.2);
+
+                    }
+                    break;
+            }
+
+
+        }else
+        {
+            differentialrobot_proxy->setSpeedBase(200, 0);
+        }
+    }
+    catch (const Ice::Exception &ex) {
+        std::cout << ex << std::endl;
+    }
+
+}
+//std::cout << ldata[10].dist << std::endl;
+//differentialrobot_proxy->setSpeedBase(5, rot);
+//usleep(rand()%(1500000-100000 + 1) + 100000);  // random wait between 1.5s and 0.1sec
+
+int SpecificWorker::startup_check() {
+    std::cout << "Startup check" << std::endl;
+    QTimer::singleShot(200, qApp, SLOT(quit()));
+    return 0;
 }
 
 
