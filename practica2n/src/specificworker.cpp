@@ -23,6 +23,7 @@
 */
 SpecificWorker::SpecificWorker(TuplePrx tprx, bool startup_check) : GenericWorker(tprx) {
     this->startup_check_flag = startup_check;
+
 }
 
 /**
@@ -40,6 +41,7 @@ bool SpecificWorker::setParams(RoboCompCommonBehavior::ParameterList params) {
 void SpecificWorker::initialize(int period) {
     std::cout << "Initialize worker" << std::endl;
     this->Period = period;
+    this->condicion_case = 0;
     if (this->startup_check_flag) {
         this->startup_check();
     } else {
@@ -49,44 +51,71 @@ void SpecificWorker::initialize(int period) {
 }
 
 void SpecificWorker::compute() {
-    const float threshold = 200; // millimeters
-    float rot = 0.2;  // rads per second
-    int condicion = 0;
-    int adv = 50;
+
+    const float threshold = 350; // millimeters
+    float rot = 0.8;  // rads per second
+    int adv = 220;
     try {
+
         // read laser data
         RoboCompLaser::TLaserData ldata = laser_proxy->getLaserData();
         //sort laser data from small to large distances using a lambda function.
-        std::sort(ldata.begin() + 3, ldata.end() - 3,
-                  [](RoboCompLaser::TData a, RoboCompLaser::TData b) { return a.dist < b.dist; });
+        std::sort(ldata.begin() + 10, ldata.end() - 10,
+                  [](RoboCompLaser::TData a, RoboCompLaser::TData b) { return a.dist < b.dist; });std::cout << ldata[12].dist << std::endl;
 
-        if (ldata[10].dist < threshold){
-            condicion++;
+            if (ldata[12].dist < threshold) {
+                        differentialrobot_proxy->setSpeedBase(5, rot);
+                usleep(rand()%(1500000-100000 + 1) + 100000);
 
-            switch (condicion) {
-                case 0: //espiral
-                    while (!ldata[10].dist < threshold) {
-                        differentialrobot_proxy->setSpeedBase(++adv, 0.2);
-
-                    }
-                    break;
+            } else {
+                switch (condicion_case) {
+                    case 0: //ESPIRAL
+                        while(ldata[12].dist > threshold && adv<1000){
+                            ldata = laser_proxy->getLaserData();
+                            std::sort(ldata.begin() + 10, ldata.end() - 10,
+                                      [](RoboCompLaser::TData a, RoboCompLaser::TData b) { return a.dist < b.dist; });
+                            differentialrobot_proxy->setSpeedBase(adv, rot);adv=adv+12;usleep(1000000);
+                        }
+                        condicion_case=rand() % 2;
+                        break;
+                    case 1:
+                        while(ldata[12].dist > threshold){
+                            ldata = laser_proxy->getLaserData();
+                            std::sort(ldata.begin() + 10, ldata.end() - 10,
+                                      [](RoboCompLaser::TData a, RoboCompLaser::TData b) { return a.dist < b.dist; });
+                            differentialrobot_proxy->setSpeedBase(450, 0);
+                        }
+                        condicion_case=rand() % 2;
+                        break;
+                }
             }
-
-
-        }else
-        {
-            differentialrobot_proxy->setSpeedBase(200, 0);
-        }
     }
+
     catch (const Ice::Exception &ex) {
         std::cout << ex << std::endl;
     }
 
 }
+//usleep(rand() % (1500000 - 100000 + 1) + 100000);  // random wait between 1.5s and 0.1sec
+//++condicion_case;  adv<1000 ||
 //std::cout << ldata[10].dist << std::endl;
 //differentialrobot_proxy->setSpeedBase(5, rot);
 //usleep(rand()%(1500000-100000 + 1) + 100000);  // random wait between 1.5s and 0.1sec
+void SpecificWorker::espiral( RoboCompLaser::TLaserData ldata,float rot) {
 
+    cout << "espiral" << condicion_case << endl;
+        cout << "Comienzo bucle, valor de condicion: " << condicion_case << endl;
+        while(ldata[12].dist > 600){
+            differentialrobot_proxy->setSpeedBase(condicion_case, rot);
+            condicion_case=condicion_case+20;
+        }
+
+
+        cout << "Espiral" << endl;
+
+
+
+}
 int SpecificWorker::startup_check() {
     std::cout << "Startup check" << std::endl;
     QTimer::singleShot(200, qApp, SLOT(quit()));

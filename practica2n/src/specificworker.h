@@ -33,6 +33,7 @@
 class SpecificWorker : public GenericWorker
 {
 Q_OBJECT
+    int condicion_case;
 public:
 	SpecificWorker(TuplePrx tprx, bool startup_check);
 	~SpecificWorker();
@@ -44,6 +45,7 @@ public slots:
 	void compute();
 	int startup_check();
 	void initialize(int period);
+    void espiral( RoboCompLaser::TLaserData ldata,float rot);
 private:
 	std::shared_ptr < InnerModel > innerModel;
 	bool startup_check_flag;
