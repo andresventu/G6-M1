@@ -53,39 +53,68 @@ void SpecificWorker::initialize(int period) {
 void SpecificWorker::compute() {
 
     const float threshold = 350; // millimeters
-    float rot = 0.8;  // rads per second
+    float r = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+    cout<<"ROTACION RAND: "<<r<<endl;
+    float rot = r;  // rads per second
     int adv = 220;
+
     try {
 
         // read laser data
         RoboCompLaser::TLaserData ldata = laser_proxy->getLaserData();
         //sort laser data from small to large distances using a lambda function.
-        std::sort(ldata.begin() + 10, ldata.end() - 10,
-                  [](RoboCompLaser::TData a, RoboCompLaser::TData b) { return a.dist < b.dist; });std::cout << ldata[12].dist << std::endl;
+        std::sort(ldata.begin() + 3, ldata.end() - 3,
+                  [](RoboCompLaser::TData a, RoboCompLaser::TData b) { return a.dist < b.dist; });std::cout << ldata[5].dist << std::endl;
 
-            if (ldata[12].dist < threshold) {
-                        differentialrobot_proxy->setSpeedBase(5, rot);
-                usleep(rand()%(1500000-100000 + 1) + 100000);
+            if (ldata[5].dist < threshold) {
+                        differentialrobot_proxy->setSpeedBase(-120, 0);
+                        usleep(2000000);
+                        while(ldata[5].dist < 400){
+                            ldata = laser_proxy->getLaserData();
+                            std::sort(ldata.begin() + 3, ldata.end() - 3,
+                                      [](RoboCompLaser::TData a, RoboCompLaser::TData b) { return a.dist < b.dist; });
+                                differentialrobot_proxy->setSpeedBase(0, rot);
+                        }
+
+                //usleep(rand()%(1500000-100000 + 1) + 100000);
 
             } else {
                 switch (condicion_case) {
                     case 0: //ESPIRAL
-                        while(ldata[12].dist > threshold && adv<1000){
+                        while(ldata[5].dist > threshold && adv<1000){
                             ldata = laser_proxy->getLaserData();
-                            std::sort(ldata.begin() + 10, ldata.end() - 10,
+                            std::sort(ldata.begin() + 3, ldata.end() - 3,
                                       [](RoboCompLaser::TData a, RoboCompLaser::TData b) { return a.dist < b.dist; });
-                            differentialrobot_proxy->setSpeedBase(adv, rot);adv=adv+12;usleep(1000000);
+                            differentialrobot_proxy->setSpeedBase(adv,0.8);adv=adv+12;usleep(1000000);
                         }
-                        condicion_case=rand() % 2;
+                        condicion_case++;
                         break;
                     case 1:
-                        while(ldata[12].dist > threshold){
+                        while(ldata[5].dist > threshold){
                             ldata = laser_proxy->getLaserData();
-                            std::sort(ldata.begin() + 10, ldata.end() - 10,
+                            std::sort(ldata.begin() + 3, ldata.end() - 3,
                                       [](RoboCompLaser::TData a, RoboCompLaser::TData b) { return a.dist < b.dist; });
-                            differentialrobot_proxy->setSpeedBase(450, 0);
+                            differentialrobot_proxy->setSpeedBase(800, 0);
                         }
-                        condicion_case=rand() % 2;
+                        condicion_case++;
+                        break;
+                    case 2:
+                        while(ldata[5].dist > threshold){
+                            ldata = laser_proxy->getLaserData();
+                            std::sort(ldata.begin() + 3, ldata.end() - 3,
+                                      [](RoboCompLaser::TData a, RoboCompLaser::TData b) { return a.dist < b.dist; });
+                            differentialrobot_proxy->setSpeedBase(800, 0);
+                        }
+                        condicion_case++;
+                        break;
+                    case 3:
+                        while(ldata[5].dist > threshold){
+                            ldata = laser_proxy->getLaserData();
+                            std::sort(ldata.begin() + 3, ldata.end() - 3,
+                                      [](RoboCompLaser::TData a, RoboCompLaser::TData b) { return a.dist < b.dist; });
+                            differentialrobot_proxy->setSpeedBase(800, -0.11);
+                        }
+                        condicion_case=0;
                         break;
                 }
             }
@@ -96,26 +125,7 @@ void SpecificWorker::compute() {
     }
 
 }
-//usleep(rand() % (1500000 - 100000 + 1) + 100000);  // random wait between 1.5s and 0.1sec
-//++condicion_case;  adv<1000 ||
-//std::cout << ldata[10].dist << std::endl;
-//differentialrobot_proxy->setSpeedBase(5, rot);
-//usleep(rand()%(1500000-100000 + 1) + 100000);  // random wait between 1.5s and 0.1sec
-void SpecificWorker::espiral( RoboCompLaser::TLaserData ldata,float rot) {
 
-    cout << "espiral" << condicion_case << endl;
-        cout << "Comienzo bucle, valor de condicion: " << condicion_case << endl;
-        while(ldata[12].dist > 600){
-            differentialrobot_proxy->setSpeedBase(condicion_case, rot);
-            condicion_case=condicion_case+20;
-        }
-
-
-        cout << "Espiral" << endl;
-
-
-
-}
 int SpecificWorker::startup_check() {
     std::cout << "Startup check" << std::endl;
     QTimer::singleShot(200, qApp, SLOT(quit()));

@@ -45,7 +45,6 @@ public slots:
 	void compute();
 	int startup_check();
 	void initialize(int period);
-    void espiral( RoboCompLaser::TLaserData ldata,float rot);
 private:
 	std::shared_ptr < InnerModel > innerModel;
 	bool startup_check_flag;
