@@ -34,6 +34,8 @@ class SpecificWorker : public GenericWorker
 {
 Q_OBJECT
     int condicion_case;
+    bool espiral;
+    int direccion;
 public:
 	SpecificWorker(TuplePrx tprx, bool startup_check);
 	~SpecificWorker();
