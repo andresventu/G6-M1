@@ -146,7 +146,7 @@ void SpecificWorker::compute() {
                             differentialrobot_proxy->setSpeedBase(800, -0.11);
                         }
                         condicion_case=0;
-                        break;
+                        break; //COMENTARIO
                 }
             }
     }
