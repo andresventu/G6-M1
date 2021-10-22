@@ -97,8 +97,10 @@ void SpecificWorker::compute()
             differentialrobot_proxy->getBaseState(bState);
             QPointF last_point = QPointF(bState.x, bState.z);
 
+
             robot_polygon->setRotation(bState.alpha*180/M_PI);
             robot_polygon->setPos(bState.x, bState.z);
+
 
 
         }
@@ -111,6 +113,7 @@ void SpecificWorker::compute()
 }
 void SpecificWorker::calcularPunto(QPointF last_point){
 
+
 }
 
 int SpecificWorker::startup_check()
@@ -119,7 +122,20 @@ int SpecificWorker::startup_check()
 	QTimer::singleShot(200, qApp, SLOT(quit()));
 	return 0;
 }
+void SpecificWorker::draw_laser (const RoboCompLaser :: TLaserData & ldata) // coordenadas del robot
+{
+    static QGraphicsItem * laser_polygon = nullptr;
+    // código para eliminar cualquier elemento gráfico láser existente
 
+
+    QPolygonF poly;
+    // código para rellenar poli con las coordenadas polares del láser (ángulo, dist) transformadas a coordenadas cartesianas (x, y), todo en el // sistema de referencia del robot
+
+    QColor color ("LightGreen");
+    color.setAlpha (40);
+    laser_polygon = viewer-> scene.addPolygon (laser_in_robot_polygon-> mapToScene (poly), QPen (QColor ("DarkGreen"), 30), QBrush (color));
+    laser_polygon-> setZValue (3);
+}
 
 
 

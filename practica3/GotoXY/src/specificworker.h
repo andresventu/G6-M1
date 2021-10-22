@@ -48,6 +48,7 @@ public slots:
 	int startup_check();
 	void initialize(int period);
     void calcularPunto(QPointF last_point);
+    void draw_laser (const RoboCompLaser :: TLaserData & ldata);
 private:
 	std::shared_ptr < InnerModel > innerModel;
     AbstractGraphicViewer *viewer;
