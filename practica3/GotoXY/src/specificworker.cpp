@@ -73,7 +73,7 @@ void SpecificWorker::initialize(int period)
         QPointF last_point = QPointF(bState.x, bState.z);
     }
     catch(const Ice::Exception &e) { std::cout << e.what() << std::endl;}
-    connect(viewer, &AbstractGraphicViewer::new_mouse_coordinates, this, &SpecificWorker::calcularPunto);
+    connect(viewer, &AbstractGraphicViewer::new_mouse_coordinates, this, &SpecificWorker::click);
 
     this->Period = period;
 	if(this->startup_check_flag)
@@ -89,23 +89,32 @@ void SpecificWorker::initialize(int period)
 
 void SpecificWorker::compute()
 {
-        try{
+        try {
             RoboCompLaser::TLaserData ldata = laser_proxy->getLaserData();
+            draw_laser(ldata);
             //sort laser data from small to large distances using a lambda function.
-            std::sort(ldata.begin() + 3, ldata.end() - 3,
-                      [](RoboCompLaser::TData a, RoboCompLaser::TData b) { return a.dist < b.dist; });std::cout << ldata[5].dist << std::endl;
+            std::cout << ldata[5].dist << std::endl;
 
             RoboCompGenericBase::TBaseState bState;
             differentialrobot_proxy->getBaseState(bState);
-            QPointF last_point = QPointF(bState.x, bState.z);
-
-
             robot_polygon->setRotation(bState.alpha*180/M_PI);
-            robot_polygon->setPos(bState.x, bState.z);
+            robot_polygon->setPos(bState.x,bState.z);
+
+            if (t1.activo)
+            {
+                auto [beta,dist] = calcularPunto(bState);
+                differentialrobot_proxy->setSpeedBase(0, beta+M_PI_2);
+
+
+                }
+            }
+
+            //robot_polygon->setRotation(bState.alpha*180/M_PI);
+           // robot_polygon->setPos(bState.x, bState.z);
 
 
 
-        }
+
         catch (const Ice::Exception &ex) {
             std::cout << ex << std::endl;
         }
@@ -113,21 +122,24 @@ void SpecificWorker::compute()
 	
 	
 }
-void SpecificWorker::calcularPunto(QPointF punto){
-    QPointF click;
-    click=punto;
-
-    std::cout <<"Cordenada x"<< std::endl;
-    std::cout << click.rx() << std::endl;
-
-    Eigen::Vector2f rw(click.rx(),click.ry());
+std::tuple<float,float> SpecificWorker::calcularPunto(RoboCompGenericBase::TBaseState bState){
+    Eigen::Vector2f rw(bState.x,bState.z);
     Eigen::Matrix2f rot;
+    rot<<std::cos(bState.alpha),(std::sin(bState.alpha)),-std::sin(bState.alpha),std::cos(bState.alpha);
 
-    rot<<std::cos(click.),-(std::sin(x)),std::sin(x),std::cos(x);
+    auto tr=rot*(t1.content-rw);
+    float beta=std::atan2(-tr.y(),tr.x());
+    float dist=tr.norm();
+return std::make_tuple(beta,dist);
 
 
 
+}
+void SpecificWorker::click(QPointF punto){
 
+    t1.punto=punto;
+    t1.content=Eigen::Vector2f (punto.x(),punto.y());
+    t1.activo=true;
 }
 
 int SpecificWorker::startup_check()
@@ -140,15 +152,14 @@ void SpecificWorker::draw_laser (const RoboCompLaser :: TLaserData & ldata) // c
 {
     static QGraphicsItem * laser_polygon = nullptr;
     // código para eliminar cualquier elemento gráfico láser existente
-    if(laser_polygon != nullptr){
-        laser_polygon= viewer->scene.removeItem(laser_in_robot_polygon);
-    }
+    if(laser_polygon != nullptr)
+        viewer->scene.removeItem(laser_polygon);
 
     QPolygonF poly;
     // código para rellenar poli con las coordenadas polares del láser (ángulo, dist) transformadas a coordenadas cartesianas (x, y), todo en el // sistema de referencia del robot
-    for(int i=0;i<ldata.size();i++) {
-        poly. << ldata[i].dist * cos(ldata[i].angle), ldata[i].dist * sin(ldata[i].angle);
-    }
+    poly << QPointF(0,0);
+    for(auto &l: ldata)
+        poly << QPointF(l.dist * sin(l.angle), l.dist * cos(l.angle));
 
     QColor color ("LightGreen");
     color.setAlpha (40);

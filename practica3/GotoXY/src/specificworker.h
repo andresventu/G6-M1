@@ -48,7 +48,8 @@ public slots:
 	void compute();
 	int startup_check();
 	void initialize(int period);
-    void calcularPunto(QPointF punto);
+    void click(QPointF punto);
+    std::tuple<float,float> calcularPunto(RoboCompGenericBase::TBaseState bState);
     void draw_laser (const RoboCompLaser :: TLaserData & ldata);
 private:
 	std::shared_ptr < InnerModel > innerModel;
@@ -57,7 +58,15 @@ private:
     QGraphicsPolygonItem *robot_polygon;
     QGraphicsRectItem *laser_in_robot_polygon;
 	bool startup_check_flag;
+    template <typename T>
+    struct Target {
+        T content;
+        QPointF punto;
+        bool activo=false;
+    };
     Target<Eigen::Vector2f> t1;
+
+
     float dist;
     float beta;
 
