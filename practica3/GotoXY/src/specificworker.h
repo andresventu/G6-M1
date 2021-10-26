@@ -30,6 +30,7 @@
 #include <genericworker.h>
 #include <innermodel/innermodel.h>
 #include <abstract_graphic_viewer/abstract_graphic_viewer.h>
+#include <eigen3/Eigen/Geometry>
 
 class SpecificWorker : public GenericWorker
 {
@@ -47,7 +48,7 @@ public slots:
 	void compute();
 	int startup_check();
 	void initialize(int period);
-    void calcularPunto(QPointF last_point);
+    void calcularPunto(QPointF punto);
     void draw_laser (const RoboCompLaser :: TLaserData & ldata);
 private:
 	std::shared_ptr < InnerModel > innerModel;
@@ -56,6 +57,9 @@ private:
     QGraphicsPolygonItem *robot_polygon;
     QGraphicsRectItem *laser_in_robot_polygon;
 	bool startup_check_flag;
+    Target<Eigen::Vector2f> t1;
+    float dist;
+    float beta;
 
 };
 

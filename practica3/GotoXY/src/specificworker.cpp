@@ -24,6 +24,8 @@
 SpecificWorker::SpecificWorker(TuplePrx tprx, bool startup_check) : GenericWorker(tprx)
 {
 	this->startup_check_flag = startup_check;
+    this->beta = 0.0;
+    this->dist = 0.0;
 }
 
 /**
@@ -71,7 +73,7 @@ void SpecificWorker::initialize(int period)
         QPointF last_point = QPointF(bState.x, bState.z);
     }
     catch(const Ice::Exception &e) { std::cout << e.what() << std::endl;}
-    //connect(viewer, &AbstractGraphicViewer::new_mouse_coordinates, this, &SpecificWorker::calcularPunto());
+    connect(viewer, &AbstractGraphicViewer::new_mouse_coordinates, this, &SpecificWorker::calcularPunto);
 
     this->Period = period;
 	if(this->startup_check_flag)
@@ -111,7 +113,19 @@ void SpecificWorker::compute()
 	
 	
 }
-void SpecificWorker::calcularPunto(QPointF last_point){
+void SpecificWorker::calcularPunto(QPointF punto){
+    QPointF click;
+    click=punto;
+
+    std::cout <<"Cordenada x"<< std::endl;
+    std::cout << click.rx() << std::endl;
+
+    Eigen::Vector2f rw(click.rx(),click.ry());
+    Eigen::Matrix2f rot;
+
+    rot<<std::cos(click.),-(std::sin(x)),std::sin(x),std::cos(x);
+
+
 
 
 }
@@ -126,10 +140,15 @@ void SpecificWorker::draw_laser (const RoboCompLaser :: TLaserData & ldata) // c
 {
     static QGraphicsItem * laser_polygon = nullptr;
     // código para eliminar cualquier elemento gráfico láser existente
-
+    if(laser_polygon != nullptr){
+        laser_polygon= viewer->scene.removeItem(laser_in_robot_polygon);
+    }
 
     QPolygonF poly;
     // código para rellenar poli con las coordenadas polares del láser (ángulo, dist) transformadas a coordenadas cartesianas (x, y), todo en el // sistema de referencia del robot
+    for(int i=0;i<ldata.size();i++) {
+        poly. << ldata[i].dist * cos(ldata[i].angle), ldata[i].dist * sin(ldata[i].angle);
+    }
 
     QColor color ("LightGreen");
     color.setAlpha (40);
@@ -165,3 +184,6 @@ void SpecificWorker::draw_laser (const RoboCompLaser :: TLaserData & ldata) // c
 // RoboCompLaser::LaserConfData
 // RoboCompLaser::TData
 
+// auto tr=rot*(tw-rw);
+//this->beta=std::atan2(tr.x(), tr.y());
+// this->dist=tr.norm();
