@@ -66,7 +66,6 @@ private:
     };
     Target<Eigen::Vector2f> t1;
 
-
     float dist;
     float beta;
 

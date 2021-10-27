@@ -90,31 +90,40 @@ void SpecificWorker::initialize(int period)
 void SpecificWorker::compute()
 {
         try {
+            float e=2.71692;
             RoboCompLaser::TLaserData ldata = laser_proxy->getLaserData();
             draw_laser(ldata);
             //sort laser data from small to large distances using a lambda function.
-            std::cout << ldata[5].dist << std::endl;
+
 
             RoboCompGenericBase::TBaseState bState;
             differentialrobot_proxy->getBaseState(bState);
-            robot_polygon->setRotation(bState.alpha*180/M_PI);
-            robot_polygon->setPos(bState.x,bState.z);
+            robot_polygon->setRotation(bState.alpha * 180 / M_PI);
+            robot_polygon->setPos(bState.x, bState.z);
 
-            if (t1.activo)
-            {
-                auto [beta,dist] = calcularPunto(bState);
-                differentialrobot_proxy->setSpeedBase(0, beta+M_PI_2);
+            if (t1.activo) {
+                auto[beta, dist] = calcularPunto(bState);
 
 
+                if(abs(beta + M_PI_2)>0.02) {
+                    differentialrobot_proxy->setSpeedBase(0, beta + M_PI_2);
+                    std::cout << dist << std::endl;
+                }else if (dist > 200) //avanzar
+                {
+
+
+                    float distancia=sqrt(pow(t1.content.x()-bState.x,2)+pow(t1.content.y()-bState.z,2));
+                    float vel=1.0/(1.0+pow(e,distancia));
+                    std::cout << vel<<std::endl;
+                    differentialrobot_proxy->setSpeedBase(1000*vel, 0);
+                } else //IDDLE
+                {
+
+                    differentialrobot_proxy->setSpeedBase(0, 0);
+                    t1.activo=false;
                 }
             }
-
-            //robot_polygon->setRotation(bState.alpha*180/M_PI);
-           // robot_polygon->setPos(bState.x, bState.z);
-
-
-
-
+        }
         catch (const Ice::Exception &ex) {
             std::cout << ex << std::endl;
         }
