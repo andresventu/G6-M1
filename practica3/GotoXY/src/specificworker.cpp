@@ -69,8 +69,6 @@ void SpecificWorker::initialize(int period)
     {
         RoboCompGenericBase::TBaseState bState;
         differentialrobot_proxy->getBaseState(bState);
-
-        QPointF last_point = QPointF(bState.x, bState.z);
     }
     catch(const Ice::Exception &e) { std::cout << e.what() << std::endl;}
     connect(viewer, &AbstractGraphicViewer::new_mouse_coordinates, this, &SpecificWorker::click);
@@ -90,54 +88,67 @@ void SpecificWorker::initialize(int period)
 void SpecificWorker::compute()
 {
         try {
-            float e=2.71692;
+            float MAX_ADVANCE=1000;
             RoboCompLaser::TLaserData ldata = laser_proxy->getLaserData();
             draw_laser(ldata);
-            //sort laser data from small to large distances using a lambda function.
-
 
             RoboCompGenericBase::TBaseState bState;
             differentialrobot_proxy->getBaseState(bState);
             robot_polygon->setRotation(bState.alpha * 180 / M_PI);
             robot_polygon->setPos(bState.x, bState.z);
 
-            if (t1.activo) {
+            if (t1.activo)
+            {
                 auto[beta, dist] = calcularPunto(bState);
 
-
-                if(abs(beta + M_PI_2)>0.02) {
-                    differentialrobot_proxy->setSpeedBase(0, beta + M_PI_2);
-                    std::cout << dist << std::endl;
-                }else if (dist > 200) //avanzar
+                if (dist < 100) //avanza
                 {
-
-
-                    float distancia=sqrt(pow(t1.content.x()-bState.x,2)+pow(t1.content.y()-bState.z,2));
-                    float vel=1.0/(1.0+pow(e,distancia));
-                    std::cout << vel<<std::endl;
-                    differentialrobot_proxy->setSpeedBase(1000*vel, 0);
-                } else //IDDLE
-                {
-
                     differentialrobot_proxy->setSpeedBase(0, 0);
-                    t1.activo=false;
+                    t1.activo = false;
                 }
+
+                // avance
+                float adv = MAX_ADVANCE  * stop_if_turning(beta) * stop_if_At_target(dist);
+                std::cout << "stop turning "<< stop_if_turning(beta) << std::endl;
+
+                std::cout << "stop target " <<stop_if_At_target(dist) << std::endl;
+                differentialrobot_proxy->setSpeedBase(adv, 0);
+
+                // move
+                differentialrobot_proxy->setSpeedBase(0, beta);
+
             }
         }
         catch (const Ice::Exception &ex) {
             std::cout << ex << std::endl;
         }
-
-	
-	
 }
+
+//returns a number beteen 0 and 1
+float SpecificWorker::stop_if_turning(float beta)
+{
+     //y = exp(-beta*beta/s)
+   static float s = pow(0.5,2)/log(0.1);
+    return exp(-beta*beta/s);
+}
+
+float SpecificWorker::stop_if_At_target(float dist)
+{
+    if(dist>1000)
+        return 1;
+    else
+        return dist/1000;
+}
+
+
+
 std::tuple<float,float> SpecificWorker::calcularPunto(RoboCompGenericBase::TBaseState bState){
     Eigen::Vector2f rw(bState.x,bState.z);
     Eigen::Matrix2f rot;
     rot<<std::cos(bState.alpha),(std::sin(bState.alpha)),-std::sin(bState.alpha),std::cos(bState.alpha);
 
     auto tr=rot*(t1.content-rw);
-    float beta=std::atan2(-tr.y(),tr.x());
+    float beta=std::atan2(-tr.x(),tr.y());
     float dist=tr.norm();
 return std::make_tuple(beta,dist);
 
@@ -207,3 +218,6 @@ void SpecificWorker::draw_laser (const RoboCompLaser :: TLaserData & ldata) // c
 // auto tr=rot*(tw-rw);
 //this->beta=std::atan2(tr.x(), tr.y());
 // this->dist=tr.norm();
+
+//float distancia=sqrt(pow(t1.content.x()-bState.x,2)+pow(t1.content.y()-bState.z,2));
+//float vel=1.0/(1.0+pow(e,distancia));

@@ -69,6 +69,10 @@ private:
     float dist;
     float beta;
 
+    float stop_if_turning(float beta);
+
+    float stop_if_At_target(float dist);
+
 };
 
 #endif
