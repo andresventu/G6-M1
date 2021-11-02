@@ -26,6 +26,7 @@ SpecificWorker::SpecificWorker(TuplePrx tprx, bool startup_check) : GenericWorke
 	this->startup_check_flag = startup_check;
     this->beta = 0.0;
     this->dist = 0.0;
+    MAX_ADVANCE=1000;
 }
 
 /**
@@ -88,7 +89,7 @@ void SpecificWorker::initialize(int period)
 void SpecificWorker::compute()
 {
         try {
-            float MAX_ADVANCE=1000;
+
             RoboCompLaser::TLaserData ldata = laser_proxy->getLaserData();
             //Pintar laser en el componente
             draw_laser(ldata);
@@ -97,25 +98,32 @@ void SpecificWorker::compute()
             robot_polygon->setRotation(bState.alpha * 180 / M_PI);
             robot_polygon->setPos(bState.x, bState.z);
 
-            if (t1.activo)
-            {
-                auto[beta, dist] = calcularPunto(bState);
-                if (dist < 120) //avanza
-                {
-                    differentialrobot_proxy->setSpeedBase(0, 0);
-                    t1.activo = false;
-                }else {
-                    // avance
-                    float adv = MAX_ADVANCE * stop_if_turning(beta) * stop_if_At_target(dist);
-                    if (abs(beta) > 0.1)
-                        differentialrobot_proxy->setSpeedBase(0, beta);
-                    else
-                        differentialrobot_proxy->setSpeedBase(adv, 0);
-                }
-            }
+
+//
         }
         catch (const Ice::Exception &ex) {
             std::cout << ex << std::endl;
+        }
+        RoboCompGenericBase::TBaseState bState;
+        differentialrobot_proxy->getBaseState(bState);
+        auto[beta, dist] = calcularPunto(bState);
+        switch(state){
+            case State::IDLEL:
+                if(t1.activo==true)
+                    state=State::FORWARD;
+                break;
+            case State::FORWARD:
+                if(dist>180)
+                Forward(bState);
+                else
+                    state=State::TURN;
+                break;
+            case State::TURN:
+                std::cout << "turn" << std::endl;
+                break;
+            case State::BORDER:
+
+                break;
         }
 }
 
@@ -134,20 +142,33 @@ float SpecificWorker::stop_if_At_target(float dist)
     else
         return dist/1000;
 }
+void SpecificWorker::Forward(RoboCompGenericBase::TBaseState bState){
+    auto[beta, dist] = calcularPunto(bState);
+    if (dist < 120) //avanza
+    {
+        differentialrobot_proxy->setSpeedBase(0, 0);
+        t1.activo = false;
+    }else {
+        // avance
+        float adv = MAX_ADVANCE * stop_if_turning(beta) * stop_if_At_target(dist);
+        std::cout <<"velocidad"<< adv << std::endl;
+        if (abs(beta) > 0.1)
+            differentialrobot_proxy->setSpeedBase(0, beta);
+        else
+            differentialrobot_proxy->setSpeedBase(adv, 0);
+    }
+}
 
 
 
-std::tuple<float,float> SpecificWorker::calcularPunto(RoboCompGenericBase::TBaseState bState){
-    Eigen::Vector2f rw(bState.x,bState.z);
+std::tuple<float,float> SpecificWorker::calcularPunto(RoboCompGenericBase::TBaseState bState) {
+    Eigen::Vector2f rw(bState.x, bState.z);
     Eigen::Matrix2f rot;
-    rot<<std::cos(bState.alpha),(std::sin(bState.alpha)),-std::sin(bState.alpha),std::cos(bState.alpha);
-
-    auto tr=rot*(t1.content-rw);
-    float beta=std::atan2(tr.x(),tr.y());
-    float dist=tr.norm();
-return std::make_tuple(beta,dist);
-
-
+    rot << std::cos(bState.alpha), (std::sin(bState.alpha)), -std::sin(bState.alpha), std::cos(bState.alpha);
+    auto tr = rot * (t1.content - rw);
+    float beta = std::atan2(tr.x(), tr.y());
+    float dist = tr.norm();
+    return std::make_tuple(beta, dist);
 
 }
 void SpecificWorker::click(QPointF punto){
@@ -209,3 +230,20 @@ void SpecificWorker::draw_laser (const RoboCompLaser :: TLaserData & ldata) // c
 // From the RoboCompLaser you can use this types:
 // RoboCompLaser::LaserConfData
 // RoboCompLaser::TData
+
+
+//if (t1.activo)
+//            {
+//                auto[beta, dist] = calcularPunto(bState);
+//                if (dist < 120) //avanza
+//                {
+//                    differentialrobot_proxy->setSpeedBase(0, 0);
+//                    t1.activo = false;
+//                }else {
+//                    // avance
+//                   Eigen::Vector2f obs= Obstaculos(ldata);
+//                   Eigen::Vector2f result(t1.punto.x() + obs.x(),t1.punto.y() + obs.y());
+//                    calcularPunto(bState);
+//                    moverse(bState,t1.punto.x(),t1.punto.y());
+//                }
+//            }

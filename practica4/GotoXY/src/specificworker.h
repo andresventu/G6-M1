@@ -50,8 +50,11 @@ public slots:
 	void initialize(int period);
     void click(QPointF punto);
     std::tuple<float,float> calcularPunto(RoboCompGenericBase::TBaseState bState);
+    void Forward(RoboCompGenericBase::TBaseState bState);
     void draw_laser (const RoboCompLaser :: TLaserData & ldata);
 private:
+    enum class State {IDLEL,FORWARD,TURN,BORDER};
+    State state=State::IDLEL;
 	std::shared_ptr < InnerModel > innerModel;
     AbstractGraphicViewer *viewer;
     const int ROBOT_LENGTH = 400;
@@ -68,11 +71,11 @@ private:
 
     float dist;
     float beta;
+    float MAX_ADVANCE;
 
     float stop_if_turning(float beta);
 
     float stop_if_At_target(float dist);
-
 };
 
 #endif

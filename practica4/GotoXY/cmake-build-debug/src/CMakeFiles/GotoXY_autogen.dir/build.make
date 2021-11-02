@@ -53,10 +53,10 @@ RM = /snap/clion/169/bin/cmake/linux/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/robocomp/robocomp/components/G6-M1/practica3/GotoXY
+CMAKE_SOURCE_DIR = /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug
+CMAKE_BINARY_DIR = /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug
 
 # Utility rule file for GotoXY_autogen.
 
@@ -67,8 +67,8 @@ include src/CMakeFiles/GotoXY_autogen.dir/compiler_depend.make
 include src/CMakeFiles/GotoXY_autogen.dir/progress.make
 
 src/CMakeFiles/GotoXY_autogen:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target GotoXY"
-	cd /home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug/src && /snap/clion/169/bin/cmake/linux/bin/cmake -E cmake_autogen /home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug/src/CMakeFiles/GotoXY_autogen.dir/AutogenInfo.json Debug
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target GotoXY"
+	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug/src && /snap/clion/169/bin/cmake/linux/bin/cmake -E cmake_autogen /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug/src/CMakeFiles/GotoXY_autogen.dir/AutogenInfo.json Debug
 
 GotoXY_autogen: src/CMakeFiles/GotoXY_autogen
 GotoXY_autogen: src/CMakeFiles/GotoXY_autogen.dir/build.make
@@ -79,10 +79,10 @@ src/CMakeFiles/GotoXY_autogen.dir/build: GotoXY_autogen
 .PHONY : src/CMakeFiles/GotoXY_autogen.dir/build
 
 src/CMakeFiles/GotoXY_autogen.dir/clean:
-	cd /home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug/src && $(CMAKE_COMMAND) -P CMakeFiles/GotoXY_autogen.dir/cmake_clean.cmake
+	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug/src && $(CMAKE_COMMAND) -P CMakeFiles/GotoXY_autogen.dir/cmake_clean.cmake
 .PHONY : src/CMakeFiles/GotoXY_autogen.dir/clean
 
 src/CMakeFiles/GotoXY_autogen.dir/depend:
-	cd /home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/robocomp/robocomp/components/G6-M1/practica3/GotoXY /home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/src /home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug /home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug/src /home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug/src/CMakeFiles/GotoXY_autogen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/src /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug/src /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug/src/CMakeFiles/GotoXY_autogen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/CMakeFiles/GotoXY_autogen.dir/depend
 

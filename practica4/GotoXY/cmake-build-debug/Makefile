@@ -57,10 +57,10 @@ RM = /snap/clion/169/bin/cmake/linux/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/robocomp/robocomp/components/G6-M1/practica3/GotoXY
+CMAKE_SOURCE_DIR = /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug
+CMAKE_BINARY_DIR = /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -132,9 +132,9 @@ install/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug/CMakeFiles /home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug/CMakeFiles /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -162,17 +162,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named ICES__home_robocomp_robocomp_components_G6-M1_practica3_GotoXY_src
+# Target rules for targets named ICES__home_robocomp_robocomp_components_G6-M1_practica4_GotoXY_src
 
 # Build rule for target.
-ICES__home_robocomp_robocomp_components_G6-M1_practica3_GotoXY_src: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ICES__home_robocomp_robocomp_components_G6-M1_practica3_GotoXY_src
-.PHONY : ICES__home_robocomp_robocomp_components_G6-M1_practica3_GotoXY_src
+ICES__home_robocomp_robocomp_components_G6-M1_practica4_GotoXY_src: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ICES__home_robocomp_robocomp_components_G6-M1_practica4_GotoXY_src
+.PHONY : ICES__home_robocomp_robocomp_components_G6-M1_practica4_GotoXY_src
 
 # fast build rule for target.
-ICES__home_robocomp_robocomp_components_G6-M1_practica3_GotoXY_src/fast:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/ICES__home_robocomp_robocomp_components_G6-M1_practica3_GotoXY_src.dir/build.make src/CMakeFiles/ICES__home_robocomp_robocomp_components_G6-M1_practica3_GotoXY_src.dir/build
-.PHONY : ICES__home_robocomp_robocomp_components_G6-M1_practica3_GotoXY_src/fast
+ICES__home_robocomp_robocomp_components_G6-M1_practica4_GotoXY_src/fast:
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/ICES__home_robocomp_robocomp_components_G6-M1_practica4_GotoXY_src.dir/build.make src/CMakeFiles/ICES__home_robocomp_robocomp_components_G6-M1_practica4_GotoXY_src.dir/build
+.PHONY : ICES__home_robocomp_robocomp_components_G6-M1_practica4_GotoXY_src/fast
 
 #=============================================================================
 # Target rules for targets named GotoXY
@@ -213,7 +213,7 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... GotoXY_autogen"
-	@echo "... ICES__home_robocomp_robocomp_components_G6-M1_practica3_GotoXY_src"
+	@echo "... ICES__home_robocomp_robocomp_components_G6-M1_practica4_GotoXY_src"
 	@echo "... GotoXY"
 .PHONY : help
 

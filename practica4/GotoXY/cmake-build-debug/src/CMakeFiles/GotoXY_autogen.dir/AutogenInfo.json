@@ -1,12 +1,12 @@
 {
-	"BUILD_DIR" : "/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug/src/GotoXY_autogen",
-	"CMAKE_BINARY_DIR" : "/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug",
-	"CMAKE_CURRENT_BINARY_DIR" : "/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug/src",
-	"CMAKE_CURRENT_SOURCE_DIR" : "/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/src",
+	"BUILD_DIR" : "/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug/src/GotoXY_autogen",
+	"CMAKE_BINARY_DIR" : "/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug/src",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/src",
 	"CMAKE_EXECUTABLE" : "/snap/clion/169/bin/cmake/linux/bin/cmake",
 	"CMAKE_LIST_FILES" : 
 	[
-		"/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/src/CMakeLists.txt",
+		"/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/src/CMakeLists.txt",
 		"/opt/robocomp/cmake/robocomp.cmake",
 		"/opt/robocomp/cmake/modules/qt.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ConfigVersion.cmake",
@@ -68,7 +68,7 @@
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Network/Qt5Network_QConnmanEnginePlugin.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Network/Qt5Network_QGenericEnginePlugin.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Network/Qt5Network_QNetworkManagerEnginePlugin.cmake",
-		"/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/src/CMakeListsSpecific.txt",
+		"/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/src/CMakeListsSpecific.txt",
 		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/FindIce.cmake",
 		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/SelectLibraryConfigurations.cmake",
 		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/SelectLibraryConfigurations.cmake",
@@ -79,6 +79,9 @@
 		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/CheckIncludeFile.cmake",
 		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/CheckCSourceCompiles.cmake",
 		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/Internal/CheckSourceCompiles.cmake",
+		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/CheckIncludeFile.c.in",
+		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/CheckFunctionExists.c",
+		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/CheckFunctionExists.c",
 		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/FindPackageHandleStandardArgs.cmake",
 		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/FindPackageMessage.cmake",
 		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/FindIce.cmake",
@@ -88,37 +91,37 @@
 		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/FindPackageHandleStandardArgs.cmake",
 		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/FindPackageMessage.cmake"
 	],
-	"CMAKE_SOURCE_DIR" : "/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY",
+	"CMAKE_SOURCE_DIR" : "/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY",
 	"DEP_FILE" : "",
 	"DEP_FILE_RULE_NAME" : "",
 	"HEADERS" : 
 	[
 		[
-			"/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/src/commonbehaviorI.h",
+			"/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/src/commonbehaviorI.h",
 			"MU",
 			"EWIEGA46WW/moc_commonbehaviorI.cpp",
 			null
 		],
 		[
-			"/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/src/genericmonitor.h",
+			"/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/src/genericmonitor.h",
 			"MU",
 			"EWIEGA46WW/moc_genericmonitor.cpp",
 			null
 		],
 		[
-			"/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/src/genericworker.h",
+			"/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/src/genericworker.h",
 			"MU",
 			"EWIEGA46WW/moc_genericworker.cpp",
 			null
 		],
 		[
-			"/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/src/specificmonitor.h",
+			"/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/src/specificmonitor.h",
 			"MU",
 			"EWIEGA46WW/moc_specificmonitor.cpp",
 			null
 		],
 		[
-			"/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/src/specificworker.h",
+			"/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/src/specificworker.h",
 			"MU",
 			"EWIEGA46WW/moc_specificworker.cpp",
 			null
@@ -149,8 +152,8 @@
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-	"INCLUDE_DIR" : "/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug/src/GotoXY_autogen/include",
-	"MOC_COMPILATION_FILE" : "/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug/src/GotoXY_autogen/mocs_compilation.cpp",
+	"INCLUDE_DIR" : "/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug/src/GotoXY_autogen/include",
+	"MOC_COMPILATION_FILE" : "/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug/src/GotoXY_autogen/mocs_compilation.cpp",
 	"MOC_DEFINITIONS" : 
 	[
 		"ICE_CPP11_MAPPING",
@@ -172,11 +175,11 @@
 	],
 	"MOC_INCLUDES" : 
 	[
-		"/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug/src",
-		"/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/src",
+		"/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug/src",
+		"/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/src",
 		"/opt/robocomp/include",
 		"/classes",
-		"/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug",
+		"/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug",
 		"/opt/robocomp/classes",
 		"/opt/robocomp/libs",
 		"/opt/robocomp/interfaces",
@@ -210,53 +213,53 @@
 		"-c",
 		"/snap/clion/169/bin/cmake/linux/share/cmake-3.20/Modules/CMakeCXXCompilerABI.cpp"
 	],
-	"MOC_PREDEFS_FILE" : "/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug/src/GotoXY_autogen/moc_predefs.h",
+	"MOC_PREDEFS_FILE" : "/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug/src/GotoXY_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : 
 	[
-		"/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug/src/CommonBehavior.cpp",
-		"/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug/src/DifferentialRobot.cpp",
-		"/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug/src/GenericBase.cpp",
-		"/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug/src/Laser.cpp",
-		"/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug/src/ui_mainUI.h"
+		"/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug/src/CommonBehavior.cpp",
+		"/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug/src/DifferentialRobot.cpp",
+		"/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug/src/GenericBase.cpp",
+		"/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug/src/Laser.cpp",
+		"/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug/src/ui_mainUI.h"
 	],
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 8,
-	"PARSE_CACHE_FILE" : "/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug/src/CMakeFiles/GotoXY_autogen.dir/ParseCache.txt",
+	"PARSE_CACHE_FILE" : "/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug/src/CMakeFiles/GotoXY_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
 	"QT_UIC_EXECUTABLE" : "/usr/lib/qt5/bin/uic",
 	"QT_VERSION_MAJOR" : 5,
 	"QT_VERSION_MINOR" : 12,
-	"SETTINGS_FILE" : "/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug/src/CMakeFiles/GotoXY_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE" : "/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug/src/CMakeFiles/GotoXY_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
 		[
-			"/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/src/commonbehaviorI.cpp",
+			"/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/src/commonbehaviorI.cpp",
 			"MU",
 			null
 		],
 		[
-			"/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/src/genericmonitor.cpp",
+			"/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/src/genericmonitor.cpp",
 			"MU",
 			null
 		],
 		[
-			"/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/src/genericworker.cpp",
+			"/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/src/genericworker.cpp",
 			"MU",
 			null
 		],
 		[
-			"/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/src/main.cpp",
+			"/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/src/main.cpp",
 			"MU",
 			null
 		],
 		[
-			"/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/src/specificmonitor.cpp",
+			"/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/src/specificmonitor.cpp",
 			"MU",
 			null
 		],
 		[
-			"/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/src/specificworker.cpp",
+			"/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/src/specificworker.cpp",
 			"MU",
 			null
 		],
@@ -268,12 +271,12 @@
 	"UIC_SEARCH_PATHS" : [],
 	"UIC_SKIP" : 
 	[
-		"/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug/src/CommonBehavior.cpp",
-		"/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug/src/DifferentialRobot.cpp",
-		"/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug/src/GenericBase.cpp",
-		"/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug/src/Laser.cpp",
-		"/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/cmake-build-debug/src/ui_mainUI.h",
-		"/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/src/mainUI.ui"
+		"/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug/src/CommonBehavior.cpp",
+		"/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug/src/DifferentialRobot.cpp",
+		"/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug/src/GenericBase.cpp",
+		"/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug/src/Laser.cpp",
+		"/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug/src/ui_mainUI.h",
+		"/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/src/mainUI.ui"
 	],
 	"UIC_UI_FILES" : [],
 	"VERBOSITY" : 0

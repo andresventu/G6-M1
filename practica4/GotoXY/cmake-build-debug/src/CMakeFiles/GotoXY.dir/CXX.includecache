@@ -30,11 +30,11 @@ GenericBase.h
 Laser.h
 -
 
-/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/src/specificworker.cpp
+/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/src/specificworker.cpp
 specificworker.h
-/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/src/specificworker.h
+/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/src/specificworker.h
 
-/home/robocomp/robocomp/components/G6-M1/practica3/GotoXY/src/specificworker.h
+/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/src/specificworker.h
 genericworker.h
 -
 innermodel/innermodel.h

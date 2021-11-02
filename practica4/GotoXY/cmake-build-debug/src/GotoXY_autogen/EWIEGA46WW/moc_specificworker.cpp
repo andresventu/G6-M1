@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_SpecificWorker_t {
-    QByteArrayData data[15];
-    char stringdata0[188];
+    QByteArrayData data[16];
+    char stringdata0[196];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -43,16 +43,17 @@ QT_MOC_LITERAL(8, 68, 13), // "calcularPunto"
 QT_MOC_LITERAL(9, 82, 23), // "std::tuple<float,float>"
 QT_MOC_LITERAL(10, 106, 31), // "RoboCompGenericBase::TBaseState"
 QT_MOC_LITERAL(11, 138, 6), // "bState"
-QT_MOC_LITERAL(12, 145, 10), // "draw_laser"
-QT_MOC_LITERAL(13, 156, 25), // "RoboCompLaser::TLaserData"
-QT_MOC_LITERAL(14, 182, 5) // "ldata"
+QT_MOC_LITERAL(12, 145, 7), // "Forward"
+QT_MOC_LITERAL(13, 153, 10), // "draw_laser"
+QT_MOC_LITERAL(14, 164, 25), // "RoboCompLaser::TLaserData"
+QT_MOC_LITERAL(15, 190, 5) // "ldata"
 
     },
     "SpecificWorker\0compute\0\0startup_check\0"
     "initialize\0period\0click\0punto\0"
     "calcularPunto\0std::tuple<float,float>\0"
     "RoboCompGenericBase::TBaseState\0bState\0"
-    "draw_laser\0RoboCompLaser::TLaserData\0"
+    "Forward\0draw_laser\0RoboCompLaser::TLaserData\0"
     "ldata"
 };
 #undef QT_MOC_LITERAL
@@ -63,7 +64,7 @@ static const uint qt_meta_data_SpecificWorker[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -71,12 +72,13 @@ static const uint qt_meta_data_SpecificWorker[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   44,    2, 0x0a /* Public */,
-       3,    0,   45,    2, 0x0a /* Public */,
-       4,    1,   46,    2, 0x0a /* Public */,
-       6,    1,   49,    2, 0x0a /* Public */,
-       8,    1,   52,    2, 0x0a /* Public */,
-      12,    1,   55,    2, 0x0a /* Public */,
+       1,    0,   49,    2, 0x0a /* Public */,
+       3,    0,   50,    2, 0x0a /* Public */,
+       4,    1,   51,    2, 0x0a /* Public */,
+       6,    1,   54,    2, 0x0a /* Public */,
+       8,    1,   57,    2, 0x0a /* Public */,
+      12,    1,   60,    2, 0x0a /* Public */,
+      13,    1,   63,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void,
@@ -84,7 +86,8 @@ static const uint qt_meta_data_SpecificWorker[] = {
     QMetaType::Void, QMetaType::Int,    5,
     QMetaType::Void, QMetaType::QPointF,    7,
     0x80000000 | 9, 0x80000000 | 10,   11,
-    QMetaType::Void, 0x80000000 | 13,   14,
+    QMetaType::Void, 0x80000000 | 10,   11,
+    QMetaType::Void, 0x80000000 | 14,   15,
 
        0        // eod
 };
@@ -102,7 +105,8 @@ void SpecificWorker::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         case 3: _t->click((*reinterpret_cast< QPointF(*)>(_a[1]))); break;
         case 4: { std::tuple<float,float> _r = _t->calcularPunto((*reinterpret_cast< RoboCompGenericBase::TBaseState(*)>(_a[1])));
             if (_a[0]) *reinterpret_cast< std::tuple<float,float>*>(_a[0]) = std::move(_r); }  break;
-        case 5: _t->draw_laser((*reinterpret_cast< const RoboCompLaser::TLaserData(*)>(_a[1]))); break;
+        case 5: _t->Forward((*reinterpret_cast< RoboCompGenericBase::TBaseState(*)>(_a[1]))); break;
+        case 6: _t->draw_laser((*reinterpret_cast< const RoboCompLaser::TLaserData(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -137,13 +141,13 @@ int SpecificWorker::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 7;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 7)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 6;
+        _id -= 7;
     }
     return _id;
 }
