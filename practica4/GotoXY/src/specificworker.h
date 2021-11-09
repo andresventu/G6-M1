@@ -51,6 +51,13 @@ public slots:
     void click(QPointF punto);
     std::tuple<float,float> calcularPunto(RoboCompGenericBase::TBaseState bState);
     void Forward(RoboCompGenericBase::TBaseState bState);
+    void Turn();
+    void Border(RoboCompLaser::TLaserData ldata,float distan,RoboCompGenericBase::TBaseState bState);
+    std::vector<int> AlgoritmoBug(QPointF P1, QPointF P2);
+    bool checkPoint(const RoboCompLaser::TLaserData &laser_data, float x , float y);
+    int calcularDistanciaIzquierda(const RoboCompLaser::TLaserData &ldataX);
+    int calcularDistanciaDerecha(const RoboCompLaser::TLaserData &ldataX);
+
     void draw_laser (const RoboCompLaser :: TLaserData & ldata);
 private:
     enum class State {IDLEL,FORWARD,TURN,BORDER};
@@ -61,6 +68,7 @@ private:
     QGraphicsPolygonItem *robot_polygon;
     QGraphicsRectItem *laser_in_robot_polygon;
 	bool startup_check_flag;
+    std::vector<int> VectorLinea;
     template <typename T>
     struct Target {
         T content;

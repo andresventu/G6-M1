@@ -97,31 +97,41 @@ void SpecificWorker::compute()
             differentialrobot_proxy->getBaseState(bState);
             robot_polygon->setRotation(bState.alpha * 180 / M_PI);
             robot_polygon->setPos(bState.x, bState.z);
-
-
 //
         }
         catch (const Ice::Exception &ex) {
             std::cout << ex << std::endl;
         }
+        RoboCompLaser::TLaserData ldata = laser_proxy->getLaserData();
+
         RoboCompGenericBase::TBaseState bState;
         differentialrobot_proxy->getBaseState(bState);
         auto[beta, dist] = calcularPunto(bState);
+        auto min= std::min_element(ldata.begin() + (ldata.size()/3) - 10,ldata.end() - (ldata.size()/3)+10, [](auto a,auto b){return a.dist < b.dist;});
+        float distan=(*min).dist;
         switch(state){
             case State::IDLEL:
                 if(t1.activo==true)
                     state=State::FORWARD;
                 break;
             case State::FORWARD:
-                if(dist>180)
+                std::cout << "dist " <<dist<< std::endl;
+                if(distan>500)
                 Forward(bState);
                 else
                     state=State::TURN;
                 break;
             case State::TURN:
+                if(1000>distan){
+                    Turn();
+                }else{
+                    state=State::BORDER;
+                }
                 std::cout << "turn" << std::endl;
                 break;
             case State::BORDER:
+
+                Border(ldata,distan,bState);
 
                 break;
         }
@@ -150,7 +160,7 @@ void SpecificWorker::Forward(RoboCompGenericBase::TBaseState bState){
         t1.activo = false;
     }else {
         // avance
-        float adv = MAX_ADVANCE * stop_if_turning(beta) * stop_if_At_target(dist);
+        float adv = (MAX_ADVANCE * stop_if_turning(beta) * stop_if_At_target(dist))/2;
         std::cout <<"velocidad"<< adv << std::endl;
         if (abs(beta) > 0.1)
             differentialrobot_proxy->setSpeedBase(0, beta);
@@ -158,24 +168,99 @@ void SpecificWorker::Forward(RoboCompGenericBase::TBaseState bState){
             differentialrobot_proxy->setSpeedBase(adv, 0);
     }
 }
+void SpecificWorker::Turn(){
+    differentialrobot_proxy->setSpeedBase(10, 0.5);
+}
+void SpecificWorker::Border(RoboCompLaser::TLaserData ldata,float distan,RoboCompGenericBase::TBaseState bState) {
+
+    auto xAux = t1.content.x();
+    auto yAux = t1.content.y();
+    Eigen::Vector2f tw(xAux, yAux);
+
+    Eigen::Vector2f rw(bState.x, bState.z);
+    Eigen::Matrix2f rot;
+    rot << std::cos(bState.alpha), (std::sin(bState.alpha)), -std::sin(bState.alpha), std::cos(bState.alpha);
+    auto tr = rot * (tw - rw);
+
+    auto distI = calcularDistanciaIzquierda(ldata);
+    auto distD = calcularDistanciaDerecha(ldata);
+    if(distan < 450){
+        differentialrobot_proxy->setSpeedBase(0, 0.5);
+    } else if(distD < 300){
+        differentialrobot_proxy->setSpeedBase(200, -0.5);
+    } else if(distI > 450){
+        differentialrobot_proxy->setSpeedBase(200, -0.7);
+    } else {
+        differentialrobot_proxy->setSpeedBase(200, 0.5);
+    }
+    if(checkPoint(ldata, tr.x(), tr.y()))state = State::FORWARD;
+    auto distLinea = abs((VectorLinea[0] * bState.x) + (VectorLinea[1] * bState.z) + VectorLinea[2]) / sqrt(pow(VectorLinea[0],2) + pow(VectorLinea[1],2));
+    std::cout<<"AAAAAAAAAA "<<distLinea<<std::endl;
+    if(distLinea < 30)state = State::FORWARD;
+
+}
 
 
 
 std::tuple<float,float> SpecificWorker::calcularPunto(RoboCompGenericBase::TBaseState bState) {
+    auto xAux = t1.content.x();
+    auto yAux = t1.content.y();
+    Eigen::Vector2f tw(xAux, yAux);
+
     Eigen::Vector2f rw(bState.x, bState.z);
     Eigen::Matrix2f rot;
     rot << std::cos(bState.alpha), (std::sin(bState.alpha)), -std::sin(bState.alpha), std::cos(bState.alpha);
-    auto tr = rot * (t1.content - rw);
+    auto tr = rot * (tw - rw);
     float beta = std::atan2(tr.x(), tr.y());
     float dist = tr.norm();
     return std::make_tuple(beta, dist);
 
+}
+
+int SpecificWorker::calcularDistanciaIzquierda(const RoboCompLaser::TLaserData &ldataX){
+    auto min = std::min_element( ldataX.begin() + 10, ldataX.end() - 300, [](auto a, auto b){ return 			a.dist < b.dist; });
+    return (*min).dist;
+}
+
+
+int SpecificWorker::calcularDistanciaDerecha(const RoboCompLaser::TLaserData &ldataX){
+    auto min = std::min_element( ldataX.begin() + 300, ldataX.end() - 10, [](auto a, auto b){ return 			a.dist < b.dist; });
+    return (*min).dist;
 }
 void SpecificWorker::click(QPointF punto){
 
     t1.punto=punto;
     t1.content=Eigen::Vector2f (punto.x(),punto.y());
     t1.activo=true;
+    RoboCompGenericBase::TBaseState bState;
+    differentialrobot_proxy->getBaseState(bState);
+    VectorLinea = AlgoritmoBug(QPointF(bState.x,bState.z), punto);
+}
+std::vector<int> SpecificWorker::AlgoritmoBug(QPointF P1, QPointF P2) {
+    std::vector<int>Result;
+
+    Result.push_back(P1.y() - P2.y());
+    Result.push_back(P2.x() - P1.x());
+    Result.push_back(((P1.x() - P2.x()) * P1.y()) + ((P2.y() - P1.y()) * P1.x()));
+    for (int n : Result) {
+        std::cout <<"buggggggggggggggggggggggggg "<< n << ", ";
+    }
+    std::cout << std::endl;
+    return(Result);
+}
+
+bool SpecificWorker::checkPoint(const RoboCompLaser::TLaserData &laser_data, float x , float y) {
+    // create laser polygon
+    QPolygonF laser_poly;
+    QPointF puntoM(x,y);
+    for( auto &l : laser_data)
+        laser_poly << QPointF(l.dist * sin(l.angle), l.dist * cos(l.angle));
+    // check intersection
+    if (laser_poly.containsPoint(puntoM,Qt::OddEvenFill))
+        return true;
+    else
+        return false;
+
 }
 
 int SpecificWorker::startup_check()
@@ -247,3 +332,21 @@ void SpecificWorker::draw_laser (const RoboCompLaser :: TLaserData & ldata) // c
 //                    moverse(bState,t1.punto.x(),t1.punto.y());
 //                }
 //            }
+
+//auto distAuxI = distObjecI(ldata);
+//auto distAuxD = distObjecD(ldata);
+//if(distAux < 450){
+//differentialrobot_proxy->setSpeedBase(0, 0.5);
+//} else if(distAuxD < 300){
+//differentialrobot_proxy->setSpeedBase(200, -0.5);
+//} else if(distAuxI > 450){
+//differentialrobot_proxy->setSpeedBase(200, -0.7);
+//} else {
+//differentialrobot_proxy->setSpeedBase(200, 0.5);
+//}
+//if(checkPoint(ldata, trans.x(), trans.y()))state = 1;
+//auto distLinea = abs((vLinea[0] * bState.x) + (vLinea[1] * bState.z) + vLinea[2]) / sqrt(pow(vLinea[0],2) + pow(vLinea[1],2));
+//std::cout<<distLinea<<std::endl;
+//if(distLinea < 30)state = 1;
+
+
