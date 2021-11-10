@@ -30,21 +30,7 @@ GenericBase.h
 Laser.h
 -
 
-/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/src/specificworker.cpp
-specificworker.h
-/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/src/specificworker.h
-
-/home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/src/specificworker.h
-genericworker.h
--
-innermodel/innermodel.h
--
-abstract_graphic_viewer/abstract_graphic_viewer.h
--
-eigen3/Eigen/Geometry
--
-
-/opt/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.h
+/home/andres/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.h
 QWidget
 -
 QGraphicsScene
@@ -68,9 +54,9 @@ QGraphicsPolygonItem
 iostream
 -
 
-/opt/robocomp/classes/qlog/qlog.h
+/home/andres/robocomp/classes/qlog/qlog.h
 config.h
-/opt/robocomp/classes/qlog/config.h
+/home/andres/robocomp/classes/qlog/config.h
 QtCore
 -
 iostream
@@ -80,6 +66,20 @@ Logger.h
 boost/format.hpp
 -
 boost/format.hpp
+-
+
+/home/andres/robotica/G6-M1/practica4/GotoXY/src/specificworker.cpp
+specificworker.h
+/home/andres/robotica/G6-M1/practica4/GotoXY/src/specificworker.h
+
+/home/andres/robotica/G6-M1/practica4/GotoXY/src/specificworker.h
+genericworker.h
+-
+innermodel/innermodel.h
+-
+abstract_graphic_viewer/abstract_graphic_viewer.h
+-
+eigen3/Eigen/Geometry
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QEvent

@@ -50,7 +50,7 @@ public slots:
 	void initialize(int period);
     void click(QPointF punto);
     std::tuple<float,float> calcularPunto(RoboCompGenericBase::TBaseState bState);
-    void Forward(RoboCompGenericBase::TBaseState bState);
+    void Forward(RoboCompGenericBase::TBaseState bState,float distan,float beta);
     void Turn();
     void Border(RoboCompLaser::TLaserData ldata,float distan,RoboCompGenericBase::TBaseState bState);
     std::vector<int> AlgoritmoBug(QPointF P1, QPointF P2);

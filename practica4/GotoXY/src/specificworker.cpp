@@ -109,15 +109,16 @@ void SpecificWorker::compute()
         auto[beta, dist] = calcularPunto(bState);
         auto min= std::min_element(ldata.begin() + (ldata.size()/3) - 10,ldata.end() - (ldata.size()/3)+10, [](auto a,auto b){return a.dist < b.dist;});
         float distan=(*min).dist;
+
         switch(state){
             case State::IDLEL:
                 if(t1.activo==true)
                     state=State::FORWARD;
                 break;
             case State::FORWARD:
-                std::cout << "dist " <<dist<< std::endl;
+                std::cout << "distan " <<distan<< std::endl;
                 if(distan>500)
-                Forward(bState);
+                Forward(bState,distan,beta);
                 else
                     state=State::TURN;
                 break;
@@ -135,14 +136,21 @@ void SpecificWorker::compute()
 
                 break;
         }
+    if(dist < 150) {
+        differentialrobot_proxy->setSpeedBase(0, 0);
+       t1.activo = false;
+    }
 }
 
 //returns a number beteen 0 and 1
 float SpecificWorker::stop_if_turning(float beta)
 {
      //y = exp(-beta*beta/s)
-   static float s = pow(0.5,2)/log(0.1);
-    return exp((-beta*beta)/s);
+   //static float s = pow(0.5,2)/log(0.1);
+    //return exp((-beta*beta)/s);
+
+    float y = (-0.5 / log(0.6));
+    return exp((-pow(beta, 2)) / y);
 }
 
 float SpecificWorker::stop_if_At_target(float dist)
@@ -152,20 +160,25 @@ float SpecificWorker::stop_if_At_target(float dist)
     else
         return dist/1000;
 }
-void SpecificWorker::Forward(RoboCompGenericBase::TBaseState bState){
-    auto[beta, dist] = calcularPunto(bState);
-    if (dist < 120) //avanza
+void SpecificWorker::Forward(RoboCompGenericBase::TBaseState bState,float distan,float beta){
+
+    if (distan < 120) //avanza
     {
         differentialrobot_proxy->setSpeedBase(0, 0);
         t1.activo = false;
     }else {
         // avance
-        float adv = (MAX_ADVANCE * stop_if_turning(beta) * stop_if_At_target(dist))/2;
-        std::cout <<"velocidad"<< adv << std::endl;
-        if (abs(beta) > 0.1)
-            differentialrobot_proxy->setSpeedBase(0, beta);
-        else
-            differentialrobot_proxy->setSpeedBase(adv, 0);
+        float adv = (MAX_ADVANCE * stop_if_turning(beta) * stop_if_At_target(distan))/2;
+        std::cout <<"VELOCIDAD "<< adv << std::endl;
+        std::cout <<"BETA "<< beta << std::endl;
+        std::cout<<"STOP TURNING "<<stop_if_turning(beta)<< std::endl;
+        std::cout<<"STOP TARGET "<<stop_if_At_target(distan)<< std::endl;
+        std::cout <<"distan "<< distan << std::endl;
+        //if (abs(beta) > 0.1)
+          //  differentialrobot_proxy->setSpeedBase(0, beta);
+        //else
+          //  differentialrobot_proxy->setSpeedBase(adv, 0);
+        differentialrobot_proxy->setSpeedBase(adv, beta);
     }
 }
 void SpecificWorker::Turn(){

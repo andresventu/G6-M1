@@ -48,19 +48,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/169/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/andres/Descargas/clion-2021.2.1/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/169/bin/cmake/linux/bin/cmake -E rm -f
+RM = /home/andres/Descargas/clion-2021.2.1/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY
+CMAKE_SOURCE_DIR = /home/andres/robotica/G6-M1/practica4/GotoXY
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug
+CMAKE_BINARY_DIR = /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,37 +68,37 @@ CMAKE_BINARY_DIR = /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cma
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/snap/clion/169/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	/home/andres/Descargas/clion-2021.2.1/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip
 
 # Special rule for the target install/strip
 install/strip/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/snap/clion/169/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	/home/andres/Descargas/clion-2021.2.1/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/snap/clion/169/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	/home/andres/Descargas/clion-2021.2.1/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local
 
 # Special rule for the target install/local
 install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/snap/clion/169/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	/home/andres/Descargas/clion-2021.2.1/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/snap/clion/169/bin/cmake/linux/bin/cmake -P cmake_install.cmake
+	/home/andres/Descargas/clion-2021.2.1/bin/cmake/linux/bin/cmake -P cmake_install.cmake
 .PHONY : install
 
 # Special rule for the target install
 install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/snap/clion/169/bin/cmake/linux/bin/cmake -P cmake_install.cmake
+	/home/andres/Descargas/clion-2021.2.1/bin/cmake/linux/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
 # Special rule for the target list_install_components
@@ -113,7 +113,7 @@ list_install_components/fast: list_install_components
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/snap/clion/169/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/home/andres/Descargas/clion-2021.2.1/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -123,7 +123,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/snap/clion/169/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/andres/Descargas/clion-2021.2.1/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -132,14 +132,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_progress_start /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug/CMakeFiles /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug/src//CMakeFiles/progress.marks
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug/CMakeFiles 0
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_progress_start /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug/CMakeFiles /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug/src//CMakeFiles/progress.marks
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/clean
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/clean
 .PHONY : clean
 
 # The main clean target
@@ -148,36 +148,36 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
-src/CMakeFiles/ICES__home_robocomp_robocomp_components_G6-M1_practica4_GotoXY_src.dir/rule:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/ICES__home_robocomp_robocomp_components_G6-M1_practica4_GotoXY_src.dir/rule
-.PHONY : src/CMakeFiles/ICES__home_robocomp_robocomp_components_G6-M1_practica4_GotoXY_src.dir/rule
+src/CMakeFiles/ICES__home_andres_robotica_G6-M1_practica4_GotoXY_src.dir/rule:
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/ICES__home_andres_robotica_G6-M1_practica4_GotoXY_src.dir/rule
+.PHONY : src/CMakeFiles/ICES__home_andres_robotica_G6-M1_practica4_GotoXY_src.dir/rule
 
 # Convenience name for target.
-ICES__home_robocomp_robocomp_components_G6-M1_practica4_GotoXY_src: src/CMakeFiles/ICES__home_robocomp_robocomp_components_G6-M1_practica4_GotoXY_src.dir/rule
-.PHONY : ICES__home_robocomp_robocomp_components_G6-M1_practica4_GotoXY_src
+ICES__home_andres_robotica_G6-M1_practica4_GotoXY_src: src/CMakeFiles/ICES__home_andres_robotica_G6-M1_practica4_GotoXY_src.dir/rule
+.PHONY : ICES__home_andres_robotica_G6-M1_practica4_GotoXY_src
 
 # fast build rule for target.
-ICES__home_robocomp_robocomp_components_G6-M1_practica4_GotoXY_src/fast:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ICES__home_robocomp_robocomp_components_G6-M1_practica4_GotoXY_src.dir/build.make src/CMakeFiles/ICES__home_robocomp_robocomp_components_G6-M1_practica4_GotoXY_src.dir/build
-.PHONY : ICES__home_robocomp_robocomp_components_G6-M1_practica4_GotoXY_src/fast
+ICES__home_andres_robotica_G6-M1_practica4_GotoXY_src/fast:
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ICES__home_andres_robotica_G6-M1_practica4_GotoXY_src.dir/build.make src/CMakeFiles/ICES__home_andres_robotica_G6-M1_practica4_GotoXY_src.dir/build
+.PHONY : ICES__home_andres_robotica_G6-M1_practica4_GotoXY_src/fast
 
 # Convenience name for target.
 src/CMakeFiles/GotoXY.dir/rule:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/GotoXY.dir/rule
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/GotoXY.dir/rule
 .PHONY : src/CMakeFiles/GotoXY.dir/rule
 
 # Convenience name for target.
@@ -186,12 +186,12 @@ GotoXY: src/CMakeFiles/GotoXY.dir/rule
 
 # fast build rule for target.
 GotoXY/fast:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/build
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/build
 .PHONY : GotoXY/fast
 
 # Convenience name for target.
 src/CMakeFiles/GotoXY_autogen.dir/rule:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/GotoXY_autogen.dir/rule
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/GotoXY_autogen.dir/rule
 .PHONY : src/CMakeFiles/GotoXY_autogen.dir/rule
 
 # Convenience name for target.
@@ -200,7 +200,7 @@ GotoXY_autogen: src/CMakeFiles/GotoXY_autogen.dir/rule
 
 # fast build rule for target.
 GotoXY_autogen/fast:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY_autogen.dir/build.make src/CMakeFiles/GotoXY_autogen.dir/build
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY_autogen.dir/build.make src/CMakeFiles/GotoXY_autogen.dir/build
 .PHONY : GotoXY_autogen/fast
 
 CommonBehavior.o: CommonBehavior.cpp.o
@@ -208,7 +208,7 @@ CommonBehavior.o: CommonBehavior.cpp.o
 
 # target to build an object file
 CommonBehavior.cpp.o:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/CommonBehavior.cpp.o
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/CommonBehavior.cpp.o
 .PHONY : CommonBehavior.cpp.o
 
 CommonBehavior.i: CommonBehavior.cpp.i
@@ -216,7 +216,7 @@ CommonBehavior.i: CommonBehavior.cpp.i
 
 # target to preprocess a source file
 CommonBehavior.cpp.i:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/CommonBehavior.cpp.i
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/CommonBehavior.cpp.i
 .PHONY : CommonBehavior.cpp.i
 
 CommonBehavior.s: CommonBehavior.cpp.s
@@ -224,7 +224,7 @@ CommonBehavior.s: CommonBehavior.cpp.s
 
 # target to generate assembly for a file
 CommonBehavior.cpp.s:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/CommonBehavior.cpp.s
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/CommonBehavior.cpp.s
 .PHONY : CommonBehavior.cpp.s
 
 DifferentialRobot.o: DifferentialRobot.cpp.o
@@ -232,7 +232,7 @@ DifferentialRobot.o: DifferentialRobot.cpp.o
 
 # target to build an object file
 DifferentialRobot.cpp.o:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/DifferentialRobot.cpp.o
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/DifferentialRobot.cpp.o
 .PHONY : DifferentialRobot.cpp.o
 
 DifferentialRobot.i: DifferentialRobot.cpp.i
@@ -240,7 +240,7 @@ DifferentialRobot.i: DifferentialRobot.cpp.i
 
 # target to preprocess a source file
 DifferentialRobot.cpp.i:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/DifferentialRobot.cpp.i
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/DifferentialRobot.cpp.i
 .PHONY : DifferentialRobot.cpp.i
 
 DifferentialRobot.s: DifferentialRobot.cpp.s
@@ -248,7 +248,7 @@ DifferentialRobot.s: DifferentialRobot.cpp.s
 
 # target to generate assembly for a file
 DifferentialRobot.cpp.s:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/DifferentialRobot.cpp.s
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/DifferentialRobot.cpp.s
 .PHONY : DifferentialRobot.cpp.s
 
 GenericBase.o: GenericBase.cpp.o
@@ -256,7 +256,7 @@ GenericBase.o: GenericBase.cpp.o
 
 # target to build an object file
 GenericBase.cpp.o:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/GenericBase.cpp.o
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/GenericBase.cpp.o
 .PHONY : GenericBase.cpp.o
 
 GenericBase.i: GenericBase.cpp.i
@@ -264,7 +264,7 @@ GenericBase.i: GenericBase.cpp.i
 
 # target to preprocess a source file
 GenericBase.cpp.i:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/GenericBase.cpp.i
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/GenericBase.cpp.i
 .PHONY : GenericBase.cpp.i
 
 GenericBase.s: GenericBase.cpp.s
@@ -272,7 +272,7 @@ GenericBase.s: GenericBase.cpp.s
 
 # target to generate assembly for a file
 GenericBase.cpp.s:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/GenericBase.cpp.s
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/GenericBase.cpp.s
 .PHONY : GenericBase.cpp.s
 
 GotoXY_autogen/mocs_compilation.o: GotoXY_autogen/mocs_compilation.cpp.o
@@ -280,7 +280,7 @@ GotoXY_autogen/mocs_compilation.o: GotoXY_autogen/mocs_compilation.cpp.o
 
 # target to build an object file
 GotoXY_autogen/mocs_compilation.cpp.o:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/GotoXY_autogen/mocs_compilation.cpp.o
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/GotoXY_autogen/mocs_compilation.cpp.o
 .PHONY : GotoXY_autogen/mocs_compilation.cpp.o
 
 GotoXY_autogen/mocs_compilation.i: GotoXY_autogen/mocs_compilation.cpp.i
@@ -288,7 +288,7 @@ GotoXY_autogen/mocs_compilation.i: GotoXY_autogen/mocs_compilation.cpp.i
 
 # target to preprocess a source file
 GotoXY_autogen/mocs_compilation.cpp.i:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/GotoXY_autogen/mocs_compilation.cpp.i
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/GotoXY_autogen/mocs_compilation.cpp.i
 .PHONY : GotoXY_autogen/mocs_compilation.cpp.i
 
 GotoXY_autogen/mocs_compilation.s: GotoXY_autogen/mocs_compilation.cpp.s
@@ -296,7 +296,7 @@ GotoXY_autogen/mocs_compilation.s: GotoXY_autogen/mocs_compilation.cpp.s
 
 # target to generate assembly for a file
 GotoXY_autogen/mocs_compilation.cpp.s:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/GotoXY_autogen/mocs_compilation.cpp.s
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/GotoXY_autogen/mocs_compilation.cpp.s
 .PHONY : GotoXY_autogen/mocs_compilation.cpp.s
 
 Laser.o: Laser.cpp.o
@@ -304,7 +304,7 @@ Laser.o: Laser.cpp.o
 
 # target to build an object file
 Laser.cpp.o:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/Laser.cpp.o
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/Laser.cpp.o
 .PHONY : Laser.cpp.o
 
 Laser.i: Laser.cpp.i
@@ -312,7 +312,7 @@ Laser.i: Laser.cpp.i
 
 # target to preprocess a source file
 Laser.cpp.i:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/Laser.cpp.i
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/Laser.cpp.i
 .PHONY : Laser.cpp.i
 
 Laser.s: Laser.cpp.s
@@ -320,7 +320,7 @@ Laser.s: Laser.cpp.s
 
 # target to generate assembly for a file
 Laser.cpp.s:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/Laser.cpp.s
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/Laser.cpp.s
 .PHONY : Laser.cpp.s
 
 commonbehaviorI.o: commonbehaviorI.cpp.o
@@ -328,7 +328,7 @@ commonbehaviorI.o: commonbehaviorI.cpp.o
 
 # target to build an object file
 commonbehaviorI.cpp.o:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/commonbehaviorI.cpp.o
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/commonbehaviorI.cpp.o
 .PHONY : commonbehaviorI.cpp.o
 
 commonbehaviorI.i: commonbehaviorI.cpp.i
@@ -336,7 +336,7 @@ commonbehaviorI.i: commonbehaviorI.cpp.i
 
 # target to preprocess a source file
 commonbehaviorI.cpp.i:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/commonbehaviorI.cpp.i
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/commonbehaviorI.cpp.i
 .PHONY : commonbehaviorI.cpp.i
 
 commonbehaviorI.s: commonbehaviorI.cpp.s
@@ -344,7 +344,7 @@ commonbehaviorI.s: commonbehaviorI.cpp.s
 
 # target to generate assembly for a file
 commonbehaviorI.cpp.s:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/commonbehaviorI.cpp.s
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/commonbehaviorI.cpp.s
 .PHONY : commonbehaviorI.cpp.s
 
 genericmonitor.o: genericmonitor.cpp.o
@@ -352,7 +352,7 @@ genericmonitor.o: genericmonitor.cpp.o
 
 # target to build an object file
 genericmonitor.cpp.o:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/genericmonitor.cpp.o
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/genericmonitor.cpp.o
 .PHONY : genericmonitor.cpp.o
 
 genericmonitor.i: genericmonitor.cpp.i
@@ -360,7 +360,7 @@ genericmonitor.i: genericmonitor.cpp.i
 
 # target to preprocess a source file
 genericmonitor.cpp.i:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/genericmonitor.cpp.i
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/genericmonitor.cpp.i
 .PHONY : genericmonitor.cpp.i
 
 genericmonitor.s: genericmonitor.cpp.s
@@ -368,7 +368,7 @@ genericmonitor.s: genericmonitor.cpp.s
 
 # target to generate assembly for a file
 genericmonitor.cpp.s:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/genericmonitor.cpp.s
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/genericmonitor.cpp.s
 .PHONY : genericmonitor.cpp.s
 
 genericworker.o: genericworker.cpp.o
@@ -376,7 +376,7 @@ genericworker.o: genericworker.cpp.o
 
 # target to build an object file
 genericworker.cpp.o:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/genericworker.cpp.o
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/genericworker.cpp.o
 .PHONY : genericworker.cpp.o
 
 genericworker.i: genericworker.cpp.i
@@ -384,7 +384,7 @@ genericworker.i: genericworker.cpp.i
 
 # target to preprocess a source file
 genericworker.cpp.i:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/genericworker.cpp.i
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/genericworker.cpp.i
 .PHONY : genericworker.cpp.i
 
 genericworker.s: genericworker.cpp.s
@@ -392,15 +392,87 @@ genericworker.s: genericworker.cpp.s
 
 # target to generate assembly for a file
 genericworker.cpp.s:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/genericworker.cpp.s
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/genericworker.cpp.s
 .PHONY : genericworker.cpp.s
+
+home/andres/robocomp/classes/qlog/qlog.o: home/andres/robocomp/classes/qlog/qlog.cpp.o
+.PHONY : home/andres/robocomp/classes/qlog/qlog.o
+
+# target to build an object file
+home/andres/robocomp/classes/qlog/qlog.cpp.o:
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/home/andres/robocomp/classes/qlog/qlog.cpp.o
+.PHONY : home/andres/robocomp/classes/qlog/qlog.cpp.o
+
+home/andres/robocomp/classes/qlog/qlog.i: home/andres/robocomp/classes/qlog/qlog.cpp.i
+.PHONY : home/andres/robocomp/classes/qlog/qlog.i
+
+# target to preprocess a source file
+home/andres/robocomp/classes/qlog/qlog.cpp.i:
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/home/andres/robocomp/classes/qlog/qlog.cpp.i
+.PHONY : home/andres/robocomp/classes/qlog/qlog.cpp.i
+
+home/andres/robocomp/classes/qlog/qlog.s: home/andres/robocomp/classes/qlog/qlog.cpp.s
+.PHONY : home/andres/robocomp/classes/qlog/qlog.s
+
+# target to generate assembly for a file
+home/andres/robocomp/classes/qlog/qlog.cpp.s:
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/home/andres/robocomp/classes/qlog/qlog.cpp.s
+.PHONY : home/andres/robocomp/classes/qlog/qlog.cpp.s
+
+home/andres/robocomp/classes/rapplication/rapplication.o: home/andres/robocomp/classes/rapplication/rapplication.cpp.o
+.PHONY : home/andres/robocomp/classes/rapplication/rapplication.o
+
+# target to build an object file
+home/andres/robocomp/classes/rapplication/rapplication.cpp.o:
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/home/andres/robocomp/classes/rapplication/rapplication.cpp.o
+.PHONY : home/andres/robocomp/classes/rapplication/rapplication.cpp.o
+
+home/andres/robocomp/classes/rapplication/rapplication.i: home/andres/robocomp/classes/rapplication/rapplication.cpp.i
+.PHONY : home/andres/robocomp/classes/rapplication/rapplication.i
+
+# target to preprocess a source file
+home/andres/robocomp/classes/rapplication/rapplication.cpp.i:
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/home/andres/robocomp/classes/rapplication/rapplication.cpp.i
+.PHONY : home/andres/robocomp/classes/rapplication/rapplication.cpp.i
+
+home/andres/robocomp/classes/rapplication/rapplication.s: home/andres/robocomp/classes/rapplication/rapplication.cpp.s
+.PHONY : home/andres/robocomp/classes/rapplication/rapplication.s
+
+# target to generate assembly for a file
+home/andres/robocomp/classes/rapplication/rapplication.cpp.s:
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/home/andres/robocomp/classes/rapplication/rapplication.cpp.s
+.PHONY : home/andres/robocomp/classes/rapplication/rapplication.cpp.s
+
+home/andres/robocomp/classes/sigwatch/sigwatch.o: home/andres/robocomp/classes/sigwatch/sigwatch.cpp.o
+.PHONY : home/andres/robocomp/classes/sigwatch/sigwatch.o
+
+# target to build an object file
+home/andres/robocomp/classes/sigwatch/sigwatch.cpp.o:
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/home/andres/robocomp/classes/sigwatch/sigwatch.cpp.o
+.PHONY : home/andres/robocomp/classes/sigwatch/sigwatch.cpp.o
+
+home/andres/robocomp/classes/sigwatch/sigwatch.i: home/andres/robocomp/classes/sigwatch/sigwatch.cpp.i
+.PHONY : home/andres/robocomp/classes/sigwatch/sigwatch.i
+
+# target to preprocess a source file
+home/andres/robocomp/classes/sigwatch/sigwatch.cpp.i:
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/home/andres/robocomp/classes/sigwatch/sigwatch.cpp.i
+.PHONY : home/andres/robocomp/classes/sigwatch/sigwatch.cpp.i
+
+home/andres/robocomp/classes/sigwatch/sigwatch.s: home/andres/robocomp/classes/sigwatch/sigwatch.cpp.s
+.PHONY : home/andres/robocomp/classes/sigwatch/sigwatch.s
+
+# target to generate assembly for a file
+home/andres/robocomp/classes/sigwatch/sigwatch.cpp.s:
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/home/andres/robocomp/classes/sigwatch/sigwatch.cpp.s
+.PHONY : home/andres/robocomp/classes/sigwatch/sigwatch.cpp.s
 
 main.o: main.cpp.o
 .PHONY : main.o
 
 # target to build an object file
 main.cpp.o:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/main.cpp.o
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -408,7 +480,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/main.cpp.i
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -416,87 +488,15 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/main.cpp.s
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/main.cpp.s
 .PHONY : main.cpp.s
-
-opt/robocomp/classes/qlog/qlog.o: opt/robocomp/classes/qlog/qlog.cpp.o
-.PHONY : opt/robocomp/classes/qlog/qlog.o
-
-# target to build an object file
-opt/robocomp/classes/qlog/qlog.cpp.o:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/opt/robocomp/classes/qlog/qlog.cpp.o
-.PHONY : opt/robocomp/classes/qlog/qlog.cpp.o
-
-opt/robocomp/classes/qlog/qlog.i: opt/robocomp/classes/qlog/qlog.cpp.i
-.PHONY : opt/robocomp/classes/qlog/qlog.i
-
-# target to preprocess a source file
-opt/robocomp/classes/qlog/qlog.cpp.i:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/opt/robocomp/classes/qlog/qlog.cpp.i
-.PHONY : opt/robocomp/classes/qlog/qlog.cpp.i
-
-opt/robocomp/classes/qlog/qlog.s: opt/robocomp/classes/qlog/qlog.cpp.s
-.PHONY : opt/robocomp/classes/qlog/qlog.s
-
-# target to generate assembly for a file
-opt/robocomp/classes/qlog/qlog.cpp.s:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/opt/robocomp/classes/qlog/qlog.cpp.s
-.PHONY : opt/robocomp/classes/qlog/qlog.cpp.s
-
-opt/robocomp/classes/rapplication/rapplication.o: opt/robocomp/classes/rapplication/rapplication.cpp.o
-.PHONY : opt/robocomp/classes/rapplication/rapplication.o
-
-# target to build an object file
-opt/robocomp/classes/rapplication/rapplication.cpp.o:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/opt/robocomp/classes/rapplication/rapplication.cpp.o
-.PHONY : opt/robocomp/classes/rapplication/rapplication.cpp.o
-
-opt/robocomp/classes/rapplication/rapplication.i: opt/robocomp/classes/rapplication/rapplication.cpp.i
-.PHONY : opt/robocomp/classes/rapplication/rapplication.i
-
-# target to preprocess a source file
-opt/robocomp/classes/rapplication/rapplication.cpp.i:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/opt/robocomp/classes/rapplication/rapplication.cpp.i
-.PHONY : opt/robocomp/classes/rapplication/rapplication.cpp.i
-
-opt/robocomp/classes/rapplication/rapplication.s: opt/robocomp/classes/rapplication/rapplication.cpp.s
-.PHONY : opt/robocomp/classes/rapplication/rapplication.s
-
-# target to generate assembly for a file
-opt/robocomp/classes/rapplication/rapplication.cpp.s:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/opt/robocomp/classes/rapplication/rapplication.cpp.s
-.PHONY : opt/robocomp/classes/rapplication/rapplication.cpp.s
-
-opt/robocomp/classes/sigwatch/sigwatch.o: opt/robocomp/classes/sigwatch/sigwatch.cpp.o
-.PHONY : opt/robocomp/classes/sigwatch/sigwatch.o
-
-# target to build an object file
-opt/robocomp/classes/sigwatch/sigwatch.cpp.o:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/opt/robocomp/classes/sigwatch/sigwatch.cpp.o
-.PHONY : opt/robocomp/classes/sigwatch/sigwatch.cpp.o
-
-opt/robocomp/classes/sigwatch/sigwatch.i: opt/robocomp/classes/sigwatch/sigwatch.cpp.i
-.PHONY : opt/robocomp/classes/sigwatch/sigwatch.i
-
-# target to preprocess a source file
-opt/robocomp/classes/sigwatch/sigwatch.cpp.i:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/opt/robocomp/classes/sigwatch/sigwatch.cpp.i
-.PHONY : opt/robocomp/classes/sigwatch/sigwatch.cpp.i
-
-opt/robocomp/classes/sigwatch/sigwatch.s: opt/robocomp/classes/sigwatch/sigwatch.cpp.s
-.PHONY : opt/robocomp/classes/sigwatch/sigwatch.s
-
-# target to generate assembly for a file
-opt/robocomp/classes/sigwatch/sigwatch.cpp.s:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/opt/robocomp/classes/sigwatch/sigwatch.cpp.s
-.PHONY : opt/robocomp/classes/sigwatch/sigwatch.cpp.s
 
 specificmonitor.o: specificmonitor.cpp.o
 .PHONY : specificmonitor.o
 
 # target to build an object file
 specificmonitor.cpp.o:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/specificmonitor.cpp.o
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/specificmonitor.cpp.o
 .PHONY : specificmonitor.cpp.o
 
 specificmonitor.i: specificmonitor.cpp.i
@@ -504,7 +504,7 @@ specificmonitor.i: specificmonitor.cpp.i
 
 # target to preprocess a source file
 specificmonitor.cpp.i:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/specificmonitor.cpp.i
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/specificmonitor.cpp.i
 .PHONY : specificmonitor.cpp.i
 
 specificmonitor.s: specificmonitor.cpp.s
@@ -512,7 +512,7 @@ specificmonitor.s: specificmonitor.cpp.s
 
 # target to generate assembly for a file
 specificmonitor.cpp.s:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/specificmonitor.cpp.s
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/specificmonitor.cpp.s
 .PHONY : specificmonitor.cpp.s
 
 specificworker.o: specificworker.cpp.o
@@ -520,7 +520,7 @@ specificworker.o: specificworker.cpp.o
 
 # target to build an object file
 specificworker.cpp.o:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/specificworker.cpp.o
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/specificworker.cpp.o
 .PHONY : specificworker.cpp.o
 
 specificworker.i: specificworker.cpp.i
@@ -528,7 +528,7 @@ specificworker.i: specificworker.cpp.i
 
 # target to preprocess a source file
 specificworker.cpp.i:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/specificworker.cpp.i
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/specificworker.cpp.i
 .PHONY : specificworker.cpp.i
 
 specificworker.s: specificworker.cpp.s
@@ -536,7 +536,7 @@ specificworker.s: specificworker.cpp.s
 
 # target to generate assembly for a file
 specificworker.cpp.s:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/specificworker.cpp.s
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/GotoXY.dir/build.make src/CMakeFiles/GotoXY.dir/specificworker.cpp.s
 .PHONY : specificworker.cpp.s
 
 # Help Target
@@ -552,7 +552,7 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... GotoXY_autogen"
-	@echo "... ICES__home_robocomp_robocomp_components_G6-M1_practica4_GotoXY_src"
+	@echo "... ICES__home_andres_robotica_G6-M1_practica4_GotoXY_src"
 	@echo "... GotoXY"
 	@echo "... CommonBehavior.o"
 	@echo "... CommonBehavior.i"
@@ -578,18 +578,18 @@ help:
 	@echo "... genericworker.o"
 	@echo "... genericworker.i"
 	@echo "... genericworker.s"
+	@echo "... home/andres/robocomp/classes/qlog/qlog.o"
+	@echo "... home/andres/robocomp/classes/qlog/qlog.i"
+	@echo "... home/andres/robocomp/classes/qlog/qlog.s"
+	@echo "... home/andres/robocomp/classes/rapplication/rapplication.o"
+	@echo "... home/andres/robocomp/classes/rapplication/rapplication.i"
+	@echo "... home/andres/robocomp/classes/rapplication/rapplication.s"
+	@echo "... home/andres/robocomp/classes/sigwatch/sigwatch.o"
+	@echo "... home/andres/robocomp/classes/sigwatch/sigwatch.i"
+	@echo "... home/andres/robocomp/classes/sigwatch/sigwatch.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... opt/robocomp/classes/qlog/qlog.o"
-	@echo "... opt/robocomp/classes/qlog/qlog.i"
-	@echo "... opt/robocomp/classes/qlog/qlog.s"
-	@echo "... opt/robocomp/classes/rapplication/rapplication.o"
-	@echo "... opt/robocomp/classes/rapplication/rapplication.i"
-	@echo "... opt/robocomp/classes/rapplication/rapplication.s"
-	@echo "... opt/robocomp/classes/sigwatch/sigwatch.o"
-	@echo "... opt/robocomp/classes/sigwatch/sigwatch.i"
-	@echo "... opt/robocomp/classes/sigwatch/sigwatch.s"
 	@echo "... specificmonitor.o"
 	@echo "... specificmonitor.i"
 	@echo "... specificmonitor.s"
@@ -607,6 +607,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/robocomp/robocomp/components/G6-M1/practica4/GotoXY/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/andres/robotica/G6-M1/practica4/GotoXY/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
