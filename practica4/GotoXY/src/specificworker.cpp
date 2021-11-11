@@ -123,7 +123,7 @@ void SpecificWorker::compute()
                     state=State::TURN;
                 break;
             case State::TURN:
-                if(1000>distan){
+                if(distan<800){
                     Turn();
                 }else{
                     state=State::BORDER;
