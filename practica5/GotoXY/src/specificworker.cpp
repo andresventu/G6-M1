@@ -71,9 +71,13 @@ void SpecificWorker::initialize(int period)
 
     try
     {
-        //RoboCompGenericBase::TBaseState bState;
-        //differentialrobot_proxy->getBaseState(bState);
-        fullposeestimation_proxy::;    //tcp -h localhost -p 10696
+        RoboCompLaser::TLaserData ldata = laser_proxy->getLaserData();
+        //Pintar laser en el componente
+        draw_laser(ldata);
+        RoboCompGenericBase::TBaseState bState;
+        differentialrobot_proxy->getBaseState(bState);
+        robot_polygon->setRotation(bState.alpha * 180 / M_PI);
+        robot_polygon->setPos(bState.x, bState.z);
     }
     catch(const Ice::Exception &e) { std::cout << e.what() << std::endl;}
     connect(viewer, &AbstractGraphicViewer::new_mouse_coordinates, this, &SpecificWorker::click);
@@ -87,8 +91,6 @@ void SpecificWorker::initialize(int period)
 	{
 		timer.start(Period);
 	}
-
-
 }
 
 void SpecificWorker::compute()
@@ -106,6 +108,7 @@ void SpecificWorker::compute()
             RoboCompFullPoseEstimation::FullPoseEuler r_state = fullposeestimation_proxy->getFullPoseEuler();
             robot_polygon->setRotation(r_state.rz*180/M_PI);
             robot_polygon->setPos(r_state.x, r_state.y);
+
 
 //
         }

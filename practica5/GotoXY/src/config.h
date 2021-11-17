@@ -7,5 +7,4 @@
 
 #define PROGRAM_NAME    "GotoXY"
 #define SERVER_FULL_NAME   "RoboComp GotoXY:: GotoXY"
-
 #endif
