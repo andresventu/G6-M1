@@ -32,6 +32,7 @@
 #include <abstract_graphic_viewer/abstract_graphic_viewer.h>
 #include <eigen3/Eigen/Geometry>
 #include <grid2d/grid.h>
+#include <cppitertools/range.hpp>
 
 class SpecificWorker : public GenericWorker
 {
@@ -86,6 +87,9 @@ private:
 
     float stop_if_At_target(float dist);
     Grid varGrid;
+    void update_map(const RoboCompLaser::TLaserData &ldata,const RoboCompFullPoseEstimation::FullPoseEuler &r_state);
+    Eigen::Vector2f posicion_robot(const RoboCompFullPoseEstimation::FullPoseEuler &r_state, Eigen::Vector2f cartesianP);
+
 };
 
 #endif

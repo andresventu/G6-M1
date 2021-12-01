@@ -301,6 +301,49 @@ void SpecificWorker::draw_laser (const RoboCompLaser :: TLaserData & ldata) // c
     laser_polygon = viewer-> scene.addPolygon (laser_in_robot_polygon-> mapToScene (poly), QPen (QColor ("DarkGreen"), 30), QBrush (color));
     laser_polygon-> setZValue (3);
 }
+void SpecificWorker::update_map(const RoboCompLaser::TLaserData &ldata,const RoboCompFullPoseEstimation::FullPoseEuler &r_state)
+{
+    float cx, cy;
+    float end;
+    float slice ;
+    ////SLICE////
+    float part;
+    for (auto &ld: ldata)
+    {
+       //cordenadas del laser
+        cx = ld.dist * cos(ld.angle);
+        cy = ld.dist *sin(ld.angle);
+
+        Eigen::Vector2f  laser_tip(cy,cx);
+        part =ld.dist/200/2;
+        end = 1.0 - (1/part);
+        slice = 1/part;
+        for(const auto &&point : iter::range<float>(0.0, end, slice))
+        {
+            auto q = posicion_robot(r_state, laser_tip * point);
+            varGrid.add_miss(q);
+        }
+        auto rr = posicion_robot(r_state,laser_tip);
+        if(ld.dist < 4000)
+        {
+            varGrid.add_hit(rr);
+        }
+        else
+            varGrid.add_miss(rr);
+    }
+}
+
+Eigen::Vector2f  SpecificWorker::posicion_robot(const RoboCompFullPoseEstimation::FullPoseEuler &r_state, Eigen::Vector2f cartesianP)
+{
+
+    float angle = r_state.rz;
+    Eigen::Matrix2f R;
+    R << cos(angle), -sin(angle), sin(angle), cos(angle);
+
+    Eigen::Vector2f robot(r_state.x,r_state.y);
+    return R * cartesianP+robot;
+
+}
 
 
 
