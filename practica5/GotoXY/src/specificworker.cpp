@@ -116,43 +116,34 @@ void SpecificWorker::compute()
             std::cout << ex << std::endl;
         }
         RoboCompLaser::TLaserData ldata = laser_proxy->getLaserData();
-
-        RoboCompGenericBase::TBaseState bState;
-        differentialrobot_proxy->getBaseState(bState);
-        auto[beta, dist] = calcularPunto(bState);
-        auto min= std::min_element(ldata.begin() + (ldata.size()/3) - 10,ldata.end() - (ldata.size()/3)+10, [](auto a,auto b){return a.dist < b.dist;});
-        float distan=(*min).dist;
-
+        static float alpha_robot=0.0;
+    RoboCompFullPoseEstimation::FullPoseEuler r_state = fullposeestimation_proxy->getFullPoseEuler();
+    target_to_robot = world_to_robot(r_state);
         switch(state){
-            case State::IDLEL:
-                if(t1.activo==true)
-                    state=State::FORWARD;
-                break;
-            case State::FORWARD:
-                std::cout << "distan " <<distan<< std::endl;
-                if(distan>500)
-                Forward(bState,distan,beta);
-                else
+            case State::TURN:
+                std::cout <<"ESTADO TURN"<<std::endl;
+                alpha_robot= r_state.rz;
                     state=State::TURN;
                 break;
-            case State::TURN:
-                if(distan<800){
-                    Turn();
-                }else{
-                    state=State::BORDER;
+            case State::EXPLORE:
+                std::cout <<"ESTADO explore"<<std::endl;
+                try{
+                    state= exploringRoom(ldata,r_state);
+                } catch (Ice::Exception &e) {
+                    std::cout<<e.what()<<std::endl;
                 }
-                std::cout << "turn" << std::endl;
+            case State::DOOR:
+                std::cout<<"estoy en estado DOOR"<<std::endl;
+                try
+                {
+                    state=lookDoor(ldata,r_state);
+                }catch (const Ice::Exception &e)
+                {
+                    std::cout<<e.what()<<std::endl;
+                }
                 break;
-            case State::BORDER:
 
-                Border(ldata,distan,bState);
-
-                break;
         }
-    if(dist < 150) {
-        differentialrobot_proxy->setSpeedBase(0, 0);
-       t1.activo = false;
-    }
 }
 
 //returns a number beteen 0 and 1
@@ -209,9 +200,6 @@ void SpecificWorker::Border(RoboCompLaser::TLaserData ldata,float distan,RoboCom
     } else {
         differentialrobot_proxy->setSpeedBase(190, 0.6);
     }
-    if(checkPoint(ldata, tr.x(), tr.y()))state = State::FORWARD;
-    auto distLinea = abs((VectorLinea[0] * bState.x) + (VectorLinea[1] * bState.z) + VectorLinea[2]) / sqrt(pow(VectorLinea[0],2) + pow(VectorLinea[1],2));
-    if(distLinea < 30)state = State::FORWARD;
 
 }
 
@@ -306,7 +294,7 @@ void SpecificWorker::update_map(const RoboCompLaser::TLaserData &ldata,const Rob
     float cx, cy;
     float end;
     float slice ;
-    ////SLICE////
+
     float part;
     for (auto &ld: ldata)
     {
@@ -330,6 +318,7 @@ void SpecificWorker::update_map(const RoboCompLaser::TLaserData &ldata,const Rob
         }
         else
             varGrid.add_miss(rr);
+
     }
 }
 
@@ -344,7 +333,119 @@ Eigen::Vector2f  SpecificWorker::posicion_robot(const RoboCompFullPoseEstimation
     return R * cartesianP+robot;
 
 }
+SpecificWorker::State SpecificWorker::exploringRoom(const RoboCompLaser::TLaserData &ldata,const RoboCompFullPoseEstimation::FullPoseEuler &r_state)
+{
 
+    std::vector<float> derivate(ldata.size());
+    for(auto &&[k,point] : iter::sliding_window(ldata, 2) | iter::enumerate)
+    {
+        derivate[k] = point[1].dist - point[0].dist;
+    }
+    // for(auto x : derivate)
+    //   std::cout<< x << std::endl;
+    update_map(ldata, r_state);
+    float percenteage_changed=0.0;
+    percenteage_changed = varGrid.percentage_changed();
+
+    std::cout << percenteage_changed*1000 << std::endl;
+    percenteage_changed = percenteage_changed *1000;
+    std::cout << percenteage_changed*1000 << std::endl;
+
+    ///EXIT CONDITION///
+    if(percenteage_changed<1.2)
+    {
+        try
+        {
+            differentialrobot_proxy->setSpeedBase(0,0);
+        }catch (const Ice::Exception &e)
+        {
+            std::cout<<e.what()<<std::endl;
+        }
+        return State::DOOR;
+    }
+    ///MAPPEO///
+    try
+    {
+        differentialrobot_proxy->setSpeedBase(0,1);
+    }catch (const Ice::Exception &e)
+    {
+        std::cout<<e.what()<<std::endl;
+    }
+
+    return State::EXPLORE;
+}
+
+SpecificWorker::State SpecificWorker::lookDoor(const RoboCompLaser::TLaserData &ldata, const RoboCompFullPoseEstimation::FullPoseEuler &r_state)
+{
+    float umbral = 500;
+    static RoboCompLaser::TData best_distance_previous = ldata[180];
+    RoboCompLaser::TData  actual_distance = ldata[180];
+    static int doors2 = 0;
+    int cx,cy;
+    //update_map(ldata, r_state);
+    ////EXIT CONDITION////
+    if(doors2 == 2)
+    {
+        doors2 = 0;
+        try
+        {
+            differentialrobot_proxy->setSpeedBase(0,0);
+        }catch (const Ice::Exception &e)
+        {
+            std::cout<<e.what()<<std::endl;
+        }
+        return State::OTHERROOM;
+    }
+    if(abs(actual_distance.dist - best_distance_previous.dist ) > umbral)
+    {
+        doors2++;
+
+        if(actual_distance.dist-best_distance_previous.dist > 0)
+        {
+            cx = best_distance_previous.dist* cos(best_distance_previous.angle);
+            cy = best_distance_previous.dist *sin(best_distance_previous.angle);
+
+            Eigen::Vector2f  laser_tip(cy,cx);
+            Eigen::Vector2f mapDoor = posicion_robot(r_state,laser_tip);
+            /////ESQUINA PUERTA 1/////
+            door.setP1(QPointF(mapDoor.x(),mapDoor.y()));
+
+
+        }else
+        {
+            cx = actual_distance.dist* cos(actual_distance.angle);
+            cy = actual_distance.dist *sin(actual_distance.angle);
+
+            Eigen::Vector2f  laser_tip(cy,cx);
+            Eigen::Vector2f mapDoor = posicion_robot(r_state,laser_tip);
+
+            /////ESQUINA PUERTA 2/////
+            door.setP2(QPointF(mapDoor.x(),mapDoor.y()));
+        }
+
+    }
+    try
+    {
+        differentialrobot_proxy->setSpeedBase(0,0.5);
+
+    }catch (const Ice::Exception &e)
+    {
+        std::cout<<e.what()<<std::endl;
+    }
+    best_distance_previous = actual_distance;
+    return State::DOOR;
+}
+QPointF SpecificWorker::world_to_robot( RoboCompFullPoseEstimation::FullPoseEuler r_state)
+{
+    float angle = r_state.rz;
+    Eigen::Vector2f T(r_state.x, r_state.y), point_in_world(t1.content.x(), t1.content.y());
+    Eigen::Matrix2f R;
+
+    R << cos(angle), -sin(angle), sin(angle), cos(angle);
+
+    Eigen::Vector2f point_in_robot = R.transpose() * (point_in_world - T);
+    return QPointF(point_in_robot.x(), point_in_robot.y());
+}
 
 
 /**************************************/

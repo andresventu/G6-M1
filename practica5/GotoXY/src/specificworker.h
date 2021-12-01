@@ -33,6 +33,8 @@
 #include <eigen3/Eigen/Geometry>
 #include <grid2d/grid.h>
 #include <cppitertools/range.hpp>
+#include <cppitertools/sliding_window.hpp>
+#include <cppitertools/enumerate.hpp>
 
 class SpecificWorker : public GenericWorker
 {
@@ -62,8 +64,8 @@ public slots:
 
     void draw_laser (const RoboCompLaser :: TLaserData & ldata);
 private:
-    enum class State {IDLEL,FORWARD,TURN,BORDER};
-    State state=State::IDLEL;
+    enum class State {TURN,EXPLORE,DOOR,OTHERROOM,CENTERROOM};
+    State state=State::EXPLORE;
 	std::shared_ptr < InnerModel > innerModel;
     AbstractGraphicViewer *viewer;
     const int ROBOT_LENGTH = 400;
@@ -87,8 +89,15 @@ private:
 
     float stop_if_At_target(float dist);
     Grid varGrid;
+    QLineF door;
+    QPointF target_to_robot;
     void update_map(const RoboCompLaser::TLaserData &ldata,const RoboCompFullPoseEstimation::FullPoseEuler &r_state);
     Eigen::Vector2f posicion_robot(const RoboCompFullPoseEstimation::FullPoseEuler &r_state, Eigen::Vector2f cartesianP);
+    SpecificWorker::State exploringRoom(const RoboCompLaser::TLaserData &ldata,const RoboCompFullPoseEstimation::FullPoseEuler &r_state);
+    SpecificWorker::State lookDoor(const RoboCompLaser::TLaserData &ldata, const RoboCompFullPoseEstimation::FullPoseEuler &r_state);
+    QPointF world_to_robot( RoboCompFullPoseEstimation::FullPoseEuler r_state);
+
+
 
 };
 

@@ -4,77 +4,35 @@ set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
 
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
-  "CXX"
-  )
-# The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/CommonBehavior.cpp" "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/CMakeFiles/GotoXY.dir/CommonBehavior.cpp.o"
-  "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/DifferentialRobot.cpp" "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/CMakeFiles/GotoXY.dir/DifferentialRobot.cpp.o"
-  "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/FullPoseEstimation.cpp" "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/CMakeFiles/GotoXY.dir/FullPoseEstimation.cpp.o"
-  "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/GenericBase.cpp" "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/CMakeFiles/GotoXY.dir/GenericBase.cpp.o"
-  "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/GotoXY_autogen/mocs_compilation.cpp" "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/CMakeFiles/GotoXY.dir/GotoXY_autogen/mocs_compilation.cpp.o"
-  "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/Laser.cpp" "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/CMakeFiles/GotoXY.dir/Laser.cpp.o"
-  "/home/andres/robotica/G6-M1/practica5/GotoXY/src/commonbehaviorI.cpp" "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/CMakeFiles/GotoXY.dir/commonbehaviorI.cpp.o"
-  "/home/andres/robotica/G6-M1/practica5/GotoXY/src/genericmonitor.cpp" "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/CMakeFiles/GotoXY.dir/genericmonitor.cpp.o"
-  "/home/andres/robotica/G6-M1/practica5/GotoXY/src/genericworker.cpp" "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/CMakeFiles/GotoXY.dir/genericworker.cpp.o"
-  "/home/andres/robocomp/classes/grid2d/grid.cpp" "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/CMakeFiles/GotoXY.dir/home/andres/robocomp/classes/grid2d/grid.cpp.o"
-  "/home/andres/robocomp/classes/qlog/qlog.cpp" "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/CMakeFiles/GotoXY.dir/home/andres/robocomp/classes/qlog/qlog.cpp.o"
-  "/home/andres/robocomp/classes/rapplication/rapplication.cpp" "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/CMakeFiles/GotoXY.dir/home/andres/robocomp/classes/rapplication/rapplication.cpp.o"
-  "/home/andres/robocomp/classes/sigwatch/sigwatch.cpp" "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/CMakeFiles/GotoXY.dir/home/andres/robocomp/classes/sigwatch/sigwatch.cpp.o"
-  "/home/andres/robotica/G6-M1/practica5/GotoXY/src/main.cpp" "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/CMakeFiles/GotoXY.dir/main.cpp.o"
-  "/home/andres/robotica/G6-M1/practica5/GotoXY/src/specificmonitor.cpp" "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/CMakeFiles/GotoXY.dir/specificmonitor.cpp.o"
-  "/home/andres/robotica/G6-M1/practica5/GotoXY/src/specificworker.cpp" "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/CMakeFiles/GotoXY.dir/specificworker.cpp.o"
-  )
-set(CMAKE_CXX_COMPILER_ID "GNU")
-
-# Preprocessor definitions for this target.
-set(CMAKE_TARGET_DEFINITIONS_CXX
-  "ICE_CPP11_MAPPING"
-  "QT_CORE_LIB"
-  "QT_GUI_LIB"
-  "QT_NETWORK_LIB"
-  "QT_OPENGL_LIB"
-  "QT_SQL_LIB"
-  "QT_WIDGETS_LIB"
-  "QT_XMLPATTERNS_LIB"
-  "QT_XML_LIB"
-  )
-
-# The include file search paths:
-set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "src/GotoXY_autogen/include"
-  "src"
-  "../src/."
-  "/opt/robocomp/include"
-  "/classes"
-  "."
-  "/home/andres/robocomp/classes"
-  "/home/andres/robocomp/libs"
-  "/home/andres/robocomp/interfaces"
-  "/include"
-  "/usr/include/x86_64-linux-gnu/qt5"
-  "/usr/include/x86_64-linux-gnu/qt5/QtGui"
-  "/usr/include/x86_64-linux-gnu/qt5/QtCore"
-  "/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"
-  "/usr/include/x86_64-linux-gnu/qt5/QtWidgets"
-  "/usr/include/x86_64-linux-gnu/qt5/QtSql"
-  "/usr/include/x86_64-linux-gnu/qt5/QtOpenGL"
-  "/usr/include/x86_64-linux-gnu/qt5/QtXml"
-  "/usr/include/x86_64-linux-gnu/qt5/QtXmlPatterns"
-  "/usr/include/x86_64-linux-gnu/qt5/QtNetwork"
   )
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/CommonBehavior.cpp" "src/CMakeFiles/GotoXY.dir/CommonBehavior.cpp.o" "gcc" "src/CMakeFiles/GotoXY.dir/CommonBehavior.cpp.o.d"
+  "/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/DifferentialRobot.cpp" "src/CMakeFiles/GotoXY.dir/DifferentialRobot.cpp.o" "gcc" "src/CMakeFiles/GotoXY.dir/DifferentialRobot.cpp.o.d"
+  "/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/FullPoseEstimation.cpp" "src/CMakeFiles/GotoXY.dir/FullPoseEstimation.cpp.o" "gcc" "src/CMakeFiles/GotoXY.dir/FullPoseEstimation.cpp.o.d"
+  "/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/GenericBase.cpp" "src/CMakeFiles/GotoXY.dir/GenericBase.cpp.o" "gcc" "src/CMakeFiles/GotoXY.dir/GenericBase.cpp.o.d"
+  "/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/GotoXY_autogen/mocs_compilation.cpp" "src/CMakeFiles/GotoXY.dir/GotoXY_autogen/mocs_compilation.cpp.o" "gcc" "src/CMakeFiles/GotoXY.dir/GotoXY_autogen/mocs_compilation.cpp.o.d"
+  "/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/Laser.cpp" "src/CMakeFiles/GotoXY.dir/Laser.cpp.o" "gcc" "src/CMakeFiles/GotoXY.dir/Laser.cpp.o.d"
+  "/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/src/commonbehaviorI.cpp" "src/CMakeFiles/GotoXY.dir/commonbehaviorI.cpp.o" "gcc" "src/CMakeFiles/GotoXY.dir/commonbehaviorI.cpp.o.d"
+  "/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/src/genericmonitor.cpp" "src/CMakeFiles/GotoXY.dir/genericmonitor.cpp.o" "gcc" "src/CMakeFiles/GotoXY.dir/genericmonitor.cpp.o.d"
+  "/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/src/genericworker.cpp" "src/CMakeFiles/GotoXY.dir/genericworker.cpp.o" "gcc" "src/CMakeFiles/GotoXY.dir/genericworker.cpp.o.d"
+  "/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/src/main.cpp" "src/CMakeFiles/GotoXY.dir/main.cpp.o" "gcc" "src/CMakeFiles/GotoXY.dir/main.cpp.o.d"
+  "/opt/robocomp/classes/grid2d/grid.cpp" "src/CMakeFiles/GotoXY.dir/opt/robocomp/classes/grid2d/grid.cpp.o" "gcc" "src/CMakeFiles/GotoXY.dir/opt/robocomp/classes/grid2d/grid.cpp.o.d"
+  "/opt/robocomp/classes/qlog/qlog.cpp" "src/CMakeFiles/GotoXY.dir/opt/robocomp/classes/qlog/qlog.cpp.o" "gcc" "src/CMakeFiles/GotoXY.dir/opt/robocomp/classes/qlog/qlog.cpp.o.d"
+  "/opt/robocomp/classes/rapplication/rapplication.cpp" "src/CMakeFiles/GotoXY.dir/opt/robocomp/classes/rapplication/rapplication.cpp.o" "gcc" "src/CMakeFiles/GotoXY.dir/opt/robocomp/classes/rapplication/rapplication.cpp.o.d"
+  "/opt/robocomp/classes/sigwatch/sigwatch.cpp" "src/CMakeFiles/GotoXY.dir/opt/robocomp/classes/sigwatch/sigwatch.cpp.o" "gcc" "src/CMakeFiles/GotoXY.dir/opt/robocomp/classes/sigwatch/sigwatch.cpp.o.d"
+  "/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/src/specificmonitor.cpp" "src/CMakeFiles/GotoXY.dir/specificmonitor.cpp.o" "gcc" "src/CMakeFiles/GotoXY.dir/specificmonitor.cpp.o.d"
+  "/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/src/specificworker.cpp" "src/CMakeFiles/GotoXY.dir/specificworker.cpp.o" "gcc" "src/CMakeFiles/GotoXY.dir/specificworker.cpp.o.d"
   )
 
 # Pairs of files generated by the same build rule.
 set(CMAKE_MULTIPLE_OUTPUT_PAIRS
-  "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/CommonBehavior.h" "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/CommonBehavior.cpp"
-  "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/DifferentialRobot.h" "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/DifferentialRobot.cpp"
-  "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/FullPoseEstimation.h" "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/FullPoseEstimation.cpp"
-  "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/GenericBase.h" "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/GenericBase.cpp"
-  "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/Laser.h" "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/Laser.cpp"
+  "/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/CommonBehavior.h" "/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/CommonBehavior.cpp"
+  "/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/DifferentialRobot.h" "/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/DifferentialRobot.cpp"
+  "/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/FullPoseEstimation.h" "/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/FullPoseEstimation.cpp"
+  "/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/GenericBase.h" "/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/GenericBase.cpp"
+  "/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/Laser.h" "/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/Laser.cpp"
   )
 
 

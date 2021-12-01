@@ -1,14 +1,14 @@
 {
-	"BUILD_DIR" : "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/GotoXY_autogen",
-	"CMAKE_BINARY_DIR" : "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug",
-	"CMAKE_CURRENT_BINARY_DIR" : "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src",
-	"CMAKE_CURRENT_SOURCE_DIR" : "/home/andres/robotica/G6-M1/practica5/GotoXY/src",
-	"CMAKE_EXECUTABLE" : "/home/andres/Descargas/clion-2021.2.1/bin/cmake/linux/bin/cmake",
+	"BUILD_DIR" : "/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/GotoXY_autogen",
+	"CMAKE_BINARY_DIR" : "/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/src",
+	"CMAKE_EXECUTABLE" : "/snap/clion/175/bin/cmake/linux/bin/cmake",
 	"CMAKE_LIST_FILES" : 
 	[
-		"/home/andres/robotica/G6-M1/practica5/GotoXY/src/CMakeLists.txt",
-		"/home/andres/robocomp/cmake/robocomp.cmake",
-		"/home/andres/robocomp/cmake/modules/qt.cmake",
+		"/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/src/CMakeLists.txt",
+		"/opt/robocomp/cmake/robocomp.cmake",
+		"/opt/robocomp/cmake/modules/qt.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ConfigVersion.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5Config.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ModuleLocation.cmake",
@@ -17,7 +17,7 @@
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtras.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreMacros.cmake",
-		"/home/andres/Descargas/clion-2021.2.1/bin/cmake/linux/share/cmake-3.20/Modules/CMakeParseArguments.cmake",
+		"/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/CMakeParseArguments.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ConfigVersion.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5Config.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5/Qt5ModuleLocation.cmake",
@@ -52,7 +52,7 @@
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake",
-		"/home/andres/Descargas/clion-2021.2.1/bin/cmake/linux/share/cmake-3.20/Modules/CMakeParseArguments.cmake",
+		"/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/CMakeParseArguments.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Sql/Qt5SqlConfigVersion.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Sql/Qt5SqlConfig.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Core/Qt5CoreConfigVersion.cmake",
@@ -68,95 +68,95 @@
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Network/Qt5Network_QConnmanEnginePlugin.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Network/Qt5Network_QGenericEnginePlugin.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt5Network/Qt5Network_QNetworkManagerEnginePlugin.cmake",
-		"/home/andres/robotica/G6-M1/practica5/GotoXY/src/CMakeListsSpecific.txt",
-		"/home/andres/Descargas/clion-2021.2.1/bin/cmake/linux/share/cmake-3.20/Modules/FindIce.cmake",
-		"/home/andres/Descargas/clion-2021.2.1/bin/cmake/linux/share/cmake-3.20/Modules/SelectLibraryConfigurations.cmake",
-		"/home/andres/Descargas/clion-2021.2.1/bin/cmake/linux/share/cmake-3.20/Modules/SelectLibraryConfigurations.cmake",
-		"/home/andres/Descargas/clion-2021.2.1/bin/cmake/linux/share/cmake-3.20/Modules/FindPackageHandleStandardArgs.cmake",
-		"/home/andres/Descargas/clion-2021.2.1/bin/cmake/linux/share/cmake-3.20/Modules/FindPackageMessage.cmake",
-		"/home/andres/Descargas/clion-2021.2.1/bin/cmake/linux/share/cmake-3.20/Modules/FindThreads.cmake",
-		"/home/andres/Descargas/clion-2021.2.1/bin/cmake/linux/share/cmake-3.20/Modules/CheckLibraryExists.cmake",
-		"/home/andres/Descargas/clion-2021.2.1/bin/cmake/linux/share/cmake-3.20/Modules/CheckIncludeFile.cmake",
-		"/home/andres/Descargas/clion-2021.2.1/bin/cmake/linux/share/cmake-3.20/Modules/CheckCSourceCompiles.cmake",
-		"/home/andres/Descargas/clion-2021.2.1/bin/cmake/linux/share/cmake-3.20/Modules/Internal/CheckSourceCompiles.cmake",
-		"/home/andres/Descargas/clion-2021.2.1/bin/cmake/linux/share/cmake-3.20/Modules/FindPackageHandleStandardArgs.cmake",
-		"/home/andres/Descargas/clion-2021.2.1/bin/cmake/linux/share/cmake-3.20/Modules/FindPackageMessage.cmake",
-		"/home/andres/Descargas/clion-2021.2.1/bin/cmake/linux/share/cmake-3.20/Modules/FindIce.cmake",
-		"/home/andres/Descargas/clion-2021.2.1/bin/cmake/linux/share/cmake-3.20/Modules/SelectLibraryConfigurations.cmake",
-		"/home/andres/Descargas/clion-2021.2.1/bin/cmake/linux/share/cmake-3.20/Modules/SelectLibraryConfigurations.cmake",
-		"/home/andres/Descargas/clion-2021.2.1/bin/cmake/linux/share/cmake-3.20/Modules/SelectLibraryConfigurations.cmake",
-		"/home/andres/Descargas/clion-2021.2.1/bin/cmake/linux/share/cmake-3.20/Modules/FindPackageHandleStandardArgs.cmake",
-		"/home/andres/Descargas/clion-2021.2.1/bin/cmake/linux/share/cmake-3.20/Modules/FindPackageMessage.cmake"
+		"/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/src/CMakeListsSpecific.txt",
+		"/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/FindIce.cmake",
+		"/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/SelectLibraryConfigurations.cmake",
+		"/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/SelectLibraryConfigurations.cmake",
+		"/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/FindPackageHandleStandardArgs.cmake",
+		"/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/FindPackageMessage.cmake",
+		"/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/FindThreads.cmake",
+		"/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/CheckLibraryExists.cmake",
+		"/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/CheckIncludeFile.cmake",
+		"/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/CheckCSourceCompiles.cmake",
+		"/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/Internal/CheckSourceCompiles.cmake",
+		"/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/FindPackageHandleStandardArgs.cmake",
+		"/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/FindPackageMessage.cmake",
+		"/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/FindIce.cmake",
+		"/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/SelectLibraryConfigurations.cmake",
+		"/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/SelectLibraryConfigurations.cmake",
+		"/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/SelectLibraryConfigurations.cmake",
+		"/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/FindPackageHandleStandardArgs.cmake",
+		"/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/FindPackageMessage.cmake"
 	],
-	"CMAKE_SOURCE_DIR" : "/home/andres/robotica/G6-M1/practica5/GotoXY",
+	"CMAKE_SOURCE_DIR" : "/home/alumno/robocomp/components/G6-M1/practica5/GotoXY",
 	"DEP_FILE" : "",
 	"DEP_FILE_RULE_NAME" : "",
 	"HEADERS" : 
 	[
 		[
-			"/home/andres/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.h",
-			"MU",
-			"HAS5XHSCA5/moc_abstract_graphic_viewer.cpp",
-			null
-		],
-		[
-			"/home/andres/robocomp/classes/grid2d/grid.h",
-			"MU",
-			"YPIUWAP4M5/moc_grid.cpp",
-			null
-		],
-		[
-			"/home/andres/robocomp/classes/qlog/qlog.h",
-			"MU",
-			"5DRJ6G5BTJ/moc_qlog.cpp",
-			null
-		],
-		[
-			"/home/andres/robocomp/classes/rapplication/rapplication.h",
-			"MU",
-			"KY6XEZO7ND/moc_rapplication.cpp",
-			null
-		],
-		[
-			"/home/andres/robocomp/classes/sigwatch/sigwatch.h",
-			"MU",
-			"DU3J7YNGCM/moc_sigwatch.cpp",
-			null
-		],
-		[
-			"/home/andres/robotica/G6-M1/practica5/GotoXY/src/commonbehaviorI.h",
+			"/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/src/commonbehaviorI.h",
 			"MU",
 			"EWIEGA46WW/moc_commonbehaviorI.cpp",
 			null
 		],
 		[
-			"/home/andres/robotica/G6-M1/practica5/GotoXY/src/genericmonitor.h",
+			"/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/src/genericmonitor.h",
 			"MU",
 			"EWIEGA46WW/moc_genericmonitor.cpp",
 			null
 		],
 		[
-			"/home/andres/robotica/G6-M1/practica5/GotoXY/src/genericworker.h",
+			"/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/src/genericworker.h",
 			"MU",
 			"EWIEGA46WW/moc_genericworker.cpp",
 			null
 		],
 		[
-			"/home/andres/robotica/G6-M1/practica5/GotoXY/src/specificmonitor.h",
+			"/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/src/specificmonitor.h",
 			"MU",
 			"EWIEGA46WW/moc_specificmonitor.cpp",
 			null
 		],
 		[
-			"/home/andres/robotica/G6-M1/practica5/GotoXY/src/specificworker.h",
+			"/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/src/specificworker.h",
 			"MU",
 			"EWIEGA46WW/moc_specificworker.cpp",
+			null
+		],
+		[
+			"/opt/robocomp/classes/abstract_graphic_viewer/abstract_graphic_viewer.h",
+			"MU",
+			"WU3NUE3SBC/moc_abstract_graphic_viewer.cpp",
+			null
+		],
+		[
+			"/opt/robocomp/classes/grid2d/grid.h",
+			"MU",
+			"PUIT7MKCHX/moc_grid.cpp",
+			null
+		],
+		[
+			"/opt/robocomp/classes/qlog/qlog.h",
+			"MU",
+			"2FGXPJ7LXO/moc_qlog.cpp",
+			null
+		],
+		[
+			"/opt/robocomp/classes/rapplication/rapplication.h",
+			"MU",
+			"QJTTXZVCVU/moc_rapplication.cpp",
+			null
+		],
+		[
+			"/opt/robocomp/classes/sigwatch/sigwatch.h",
+			"MU",
+			"A42NFNQRPH/moc_sigwatch.cpp",
 			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-	"INCLUDE_DIR" : "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/GotoXY_autogen/include",
-	"MOC_COMPILATION_FILE" : "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/GotoXY_autogen/mocs_compilation.cpp",
+	"INCLUDE_DIR" : "/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/GotoXY_autogen/include",
+	"MOC_COMPILATION_FILE" : "/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/GotoXY_autogen/mocs_compilation.cpp",
 	"MOC_DEFINITIONS" : 
 	[
 		"ICE_CPP11_MAPPING",
@@ -178,14 +178,14 @@
 	],
 	"MOC_INCLUDES" : 
 	[
-		"/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src",
-		"/home/andres/robotica/G6-M1/practica5/GotoXY/src",
+		"/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src",
+		"/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/src",
 		"/opt/robocomp/include",
 		"/classes",
-		"/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug",
-		"/home/andres/robocomp/classes",
-		"/home/andres/robocomp/libs",
-		"/home/andres/robocomp/interfaces",
+		"/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug",
+		"/opt/robocomp/classes",
+		"/opt/robocomp/libs",
+		"/opt/robocomp/interfaces",
 		"/include",
 		"/usr/include/x86_64-linux-gnu/qt5",
 		"/usr/include/x86_64-linux-gnu/qt5/QtGui",
@@ -197,10 +197,10 @@
 		"/usr/include/x86_64-linux-gnu/qt5/QtXml",
 		"/usr/include/x86_64-linux-gnu/qt5/QtXmlPatterns",
 		"/usr/include/x86_64-linux-gnu/qt5/QtNetwork",
-		"/usr/include/c++/9",
-		"/usr/include/x86_64-linux-gnu/c++/9",
-		"/usr/include/c++/9/backward",
-		"/usr/lib/gcc/x86_64-linux-gnu/9/include",
+		"/usr/include/c++/10",
+		"/usr/include/x86_64-linux-gnu/c++/10",
+		"/usr/include/c++/10/backward",
+		"/usr/lib/gcc/x86_64-linux-gnu/10/include",
 		"/usr/local/include",
 		"/usr/include/x86_64-linux-gnu",
 		"/usr/include"
@@ -214,79 +214,75 @@
 		"-dM",
 		"-E",
 		"-c",
-		"/home/andres/Descargas/clion-2021.2.1/bin/cmake/linux/share/cmake-3.20/Modules/CMakeCXXCompilerABI.cpp"
+		"/snap/clion/175/bin/cmake/linux/share/cmake-3.21/Modules/CMakeCXXCompilerABI.cpp"
 	],
-	"MOC_PREDEFS_FILE" : "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/GotoXY_autogen/moc_predefs.h",
+	"MOC_PREDEFS_FILE" : "/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/GotoXY_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : 
 	[
-		"/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/CommonBehavior.cpp",
-		"/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/DifferentialRobot.cpp",
-		"/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/FullPoseEstimation.cpp",
-		"/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/GenericBase.cpp",
-		"/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/Laser.cpp",
-		"/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/ui_mainUI.h"
+		"/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/CommonBehavior.cpp",
+		"/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/DifferentialRobot.cpp",
+		"/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/FullPoseEstimation.cpp",
+		"/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/GenericBase.cpp",
+		"/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/Laser.cpp",
+		"/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/ui_mainUI.h"
 	],
 	"MULTI_CONFIG" : false,
-	"PARALLEL" : 4,
-	"PARSE_CACHE_FILE" : "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/CMakeFiles/GotoXY_autogen.dir/ParseCache.txt",
+	"PARALLEL" : 8,
+	"PARSE_CACHE_FILE" : "/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/CMakeFiles/GotoXY_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
 	"QT_UIC_EXECUTABLE" : "/usr/lib/qt5/bin/uic",
 	"QT_VERSION_MAJOR" : 5,
 	"QT_VERSION_MINOR" : 12,
-	"SETTINGS_FILE" : "/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/CMakeFiles/GotoXY_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE" : "/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/CMakeFiles/GotoXY_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
-		[ "/home/andres/robocomp/classes/grid2d/grid.cpp", "MU", null ],
-		[ "/home/andres/robocomp/classes/qlog/qlog.cpp", "MU", null ],
 		[
-			"/home/andres/robocomp/classes/rapplication/rapplication.cpp",
-			"MU",
-			null
-		],
-		[ "/home/andres/robocomp/classes/sigwatch/sigwatch.cpp", "MU", null ],
-		[
-			"/home/andres/robotica/G6-M1/practica5/GotoXY/src/commonbehaviorI.cpp",
+			"/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/src/commonbehaviorI.cpp",
 			"MU",
 			null
 		],
 		[
-			"/home/andres/robotica/G6-M1/practica5/GotoXY/src/genericmonitor.cpp",
+			"/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/src/genericmonitor.cpp",
 			"MU",
 			null
 		],
 		[
-			"/home/andres/robotica/G6-M1/practica5/GotoXY/src/genericworker.cpp",
+			"/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/src/genericworker.cpp",
 			"MU",
 			null
 		],
 		[
-			"/home/andres/robotica/G6-M1/practica5/GotoXY/src/main.cpp",
+			"/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/src/main.cpp",
 			"MU",
 			null
 		],
 		[
-			"/home/andres/robotica/G6-M1/practica5/GotoXY/src/specificmonitor.cpp",
+			"/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/src/specificmonitor.cpp",
 			"MU",
 			null
 		],
 		[
-			"/home/andres/robotica/G6-M1/practica5/GotoXY/src/specificworker.cpp",
+			"/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/src/specificworker.cpp",
 			"MU",
 			null
-		]
+		],
+		[ "/opt/robocomp/classes/grid2d/grid.cpp", "MU", null ],
+		[ "/opt/robocomp/classes/qlog/qlog.cpp", "MU", null ],
+		[ "/opt/robocomp/classes/rapplication/rapplication.cpp", "MU", null ],
+		[ "/opt/robocomp/classes/sigwatch/sigwatch.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],
 	"UIC_SKIP" : 
 	[
-		"/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/CommonBehavior.cpp",
-		"/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/DifferentialRobot.cpp",
-		"/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/FullPoseEstimation.cpp",
-		"/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/GenericBase.cpp",
-		"/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/Laser.cpp",
-		"/home/andres/robotica/G6-M1/practica5/GotoXY/cmake-build-debug/src/ui_mainUI.h",
-		"/home/andres/robotica/G6-M1/practica5/GotoXY/src/mainUI.ui"
+		"/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/CommonBehavior.cpp",
+		"/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/DifferentialRobot.cpp",
+		"/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/FullPoseEstimation.cpp",
+		"/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/GenericBase.cpp",
+		"/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/Laser.cpp",
+		"/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/cmake-build-debug/src/ui_mainUI.h",
+		"/home/alumno/robocomp/components/G6-M1/practica5/GotoXY/src/mainUI.ui"
 	],
 	"UIC_UI_FILES" : [],
 	"VERBOSITY" : 0
